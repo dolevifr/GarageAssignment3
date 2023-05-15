@@ -8,6 +8,12 @@ namespace Garage
 {
     public class Truck : Vehicle
     {
-
+        bool m_isCarryingDangerousMaterials;
+        float m_maxCargoLoad;
+        Truck(string i_licenseNumber, string i_modelName, Engine i_engineBase, bool i_isCarryingDangerousMaterials, float i_maxCargoLoad) :
+            base(i_licenseNumber, i_modelName, i_engineBase)
+        {
+            
+        }
     }
 }

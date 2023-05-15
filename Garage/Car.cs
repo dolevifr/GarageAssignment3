@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Garage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,21 @@ using System.Threading.Tasks;
 
 namespace Garage
 {
-    internal class Car
+    public class Car : Vehicle
     {
+        string m_colorOfCar;
+        int m_numOfDoors;
+
+        public Car(string licenseNumber, string modelName, Engine engineBase, string colorOfCar, int numOfDoors) :
+                base(licenseNumber, modelName, engineBase)
+        {
+            m_numOfDoors = numOfDoors;
+            m_colorOfCar= colorOfCar;
+        }
+
     }
 }
+//string m_modelName;
+//string m_licenseNumber;
+//Wheel m_wheelBase;
+//Engine m_engineBase;

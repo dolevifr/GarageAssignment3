@@ -15,17 +15,17 @@ namespace Garage
         {
             m_MaxEnergyCapacity = i_MaxEnergyCapacity;
         }
-
+            
         public void AddEnergy(float i_energyToAdd)
         {
-            float energyToAdd = i_energyToAdd + m_currentEnergyCapacity;
+            float energyCapacityAfterAdd = i_energyToAdd + m_currentEnergyCapacity;
             
-            if (energyToAdd > m_MaxEnergyCapacity)
+            if (energyCapacityAfterAdd > m_MaxEnergyCapacity)
             {
-                energyToAdd += 1; //TODO: throw exception instead
+                energyCapacityAfterAdd += 1; //TODO: throw exception instead
             }
 
-            m_currentEnergyCapacity = energyToAdd;
+            m_currentEnergyCapacity = energyCapacityAfterAdd;
         }
 
     }

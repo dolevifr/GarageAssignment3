@@ -12,7 +12,6 @@ namespace Garage
 
         private eFuelType m_fuelType;
 
-
         public ElectricEngine(float i_maxLiterCapacityLiter)
             : base(i_maxLiterCapacityLiter)
         {
@@ -29,11 +28,11 @@ namespace Garage
             get { return base.m_MaxEnergyCapacity; }
         }
 
-        public void RechargeVehicle(float i_batteryTimeToAdd, eFuelType i_fuelType)
+        public void RecfuleVehicle(float i_batteryTimeToAdd, eFuelType i_fuelType)
         {
             if(m_fuelType == i_fuelType)
-                1 == 1; //throw exception
-
+                m_fuelType += 1; //throw exception
+            
             base.AddEnergy(i_batteryTimeToAdd);
         }
     }
