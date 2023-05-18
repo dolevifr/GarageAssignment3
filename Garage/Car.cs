@@ -16,9 +16,8 @@ namespace Garage
                 base(licenseNumber, modelName, engineBase)
         {
             m_numOfDoors = numOfDoors;
-            m_colorOfCar= colorOfCar;
+            m_colorOfCar = colorOfCar;
         }
-
     }
 }
 //string m_modelName;

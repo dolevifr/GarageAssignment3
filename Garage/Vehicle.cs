@@ -18,5 +18,13 @@ namespace Garage
             m_modelName = i_modelName;
             m_engineBase = i_engineBase;
         }
+        public string LicenseNumber
+        {
+            get
+            {
+                return m_licenseNumber;
+            }
+           
+        }
     }
 }
