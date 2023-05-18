@@ -8,14 +8,11 @@ namespace Ex03.GarageLogic
 {
     internal class UITextMessages
     {
-
-
-
-        void getUserLicenseNumber()
+        void getVehicleLicenseNumber()
         {
             Console.ReadLine();
         }
-        void getUserVehicleType()
+        void getVehicleType()
         {
             Console.ReadLine();
         }
@@ -31,7 +28,18 @@ namespace Ex03.GarageLogic
         {
             Console.ReadLine();
         }
-
+        void getMotorcycleLicenseType()
+        {
+            Console.ReadLine();
+        }
+        void getAirPressureInWheels()
+        {
+            Console.ReadLine();
+        }
+        void getIsRefrigeratorTruck()
+        {
+            Console.ReadLine();
+        }
     }
 
 }

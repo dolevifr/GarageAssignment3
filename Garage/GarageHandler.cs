@@ -13,17 +13,25 @@ namespace Garage
         private struct VehicleInformation
         {
             public Vehicle m_Vehicle;
-            string m_OwnerName;
-            string m_OwnerPhoneNumber;
+            public string m_OwnerName;
+            public string m_OwnerPhoneNumber;
             eVehicleStatus m_VehicleStaus;
         }
         enum eVehicleStatus { InRepair, Repaird, Paid }
 
-        void InsertVehicleToGarage(VehicleInformation i_vehicleToInsert)
+        void InsertVehicleToGarage(Vehicle i_vehicleToInsert,string i_ownerName, string i_ownerPhoneNumber)
         {
-
-            vehiclesInTheGarage.Add(i_vehicleToInsert.m_Vehicle.LicenseNumber, i_vehicleToInsert);
+            VehicleInformation vehicleInformation = new VehicleInformation();
+            vehicleInformation.m_Vehicle = i_vehicleToInsert;
+            vehicleInformation.m_OwnerName = i_ownerName;
+            vehiclesInTheGarage.Add(i_vehicleToInsert.LicenseNumber, vehicleInformation);
         }
+        
+        bool isVehicleInGarage(string licenseNumber)
+        {
+            return vehiclesInTheGarage.ContainsKey(licenseNumber);
+        }
+
 
 
 
