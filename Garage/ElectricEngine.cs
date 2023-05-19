@@ -2,21 +2,17 @@
 {
     public class ElectricEngine : Engine
     {
-        public ElectricEngine(float MaxBatteryTimeCapacityHours) : base(MaxBatteryTimeCapacityHours) {}
+        public ElectricEngine(float i_MaxBatteryTimeCapacityHours) :
+            base(i_MaxBatteryTimeCapacityHours, eEnergyType.Electricity) {}
 
         public float CurrentBatteryTimeHours
         {
-            get { return base.m_currentEnergyCapacity; }
+            get { return m_currentEnergyCapacity; }
         }
 
         public float MaxBatteryTimeHours
         {
-            get { return base.m_MaxEnergyCapacity; }
-        }
-
-        public void RechargeVehicle(float i_batteryTimeToAdd)
-        {
-            base.AddEnergy(i_batteryTimeToAdd);
+            get { return m_MaxEnergyCapacity; }
         }
     }
 }

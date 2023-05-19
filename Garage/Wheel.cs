@@ -12,7 +12,7 @@ namespace Garage
         private float m_currentPsi;
         private float m_maxPsi;
         
-        private void airPump(int airToFill)
+        private void pumpAirToWheel(int airToFill)
         { 
             if(airToFill + m_currentPsi > m_maxPsi)
             {
@@ -23,6 +23,10 @@ namespace Garage
                 m_currentPsi += airToFill;
             }
         }
+        public void FillToMaxAirPressur()
+        {
+            m_currentPsi = m_maxPsi;
+        }
 
         public string ManufacturerName
         {
@@ -31,7 +35,7 @@ namespace Garage
 
         public float CurrentPsi
         { 
-        get { return m_currentPsi;  }
+            get { return m_currentPsi;  }
         }
 
         public float MaxPsi

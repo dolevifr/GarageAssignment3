@@ -42,7 +42,7 @@
     <Compile Include="Engine.cs" />
     <Compile Include="GarageHandler.cs" />
     <Compile Include="Motorcycle.cs" />
-    <Compile Include="RegularEngine.cs" />
+    <Compile Include="FuelEngine.cs" />
     <Compile Include="Truck.cs" />
     <Compile Include="Vehicle.cs" />
     <Compile Include="Wheel.cs" />

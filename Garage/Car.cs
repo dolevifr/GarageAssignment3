@@ -20,7 +20,3 @@ namespace Garage
         }
     }
 }
-//string m_modelName;
-//string m_licenseNumber;
-//Wheel m_wheelBase;
-//Engine m_engineBase;
