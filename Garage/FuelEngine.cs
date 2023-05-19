@@ -8,11 +8,8 @@ namespace Garage
 {
     public class FuelEngine : Engine
     {
-
-        private eEnergyType m_fuelType;
-
-        public FuelEngine(float i_maxLiterCapacityLiter, eEnergyType i_energy_type)
-            : base(i_maxLiterCapacityLiter, i_energy_type)
+        public FuelEngine(eEnergyType i_energy_type, float i_initialFuelQuantityLiters, float i_maxFuelCapacityLiter)
+            : base(i_energy_type, i_initialFuelQuantityLiters, i_maxFuelCapacityLiter)
         {
             if (i_energy_type == eEnergyType.Electricity)
             {

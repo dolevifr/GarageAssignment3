@@ -19,7 +19,7 @@ namespace Garage
 
             public string GetVehicleDetails(string i_licenseNumber)
             {
-                return String.Format(
+                return string.Format(
                 $@"License Name:   {m_Vehicle.LicenseNumber}
                    Model Name:     {m_Vehicle.ModelName}
                    Owner Name      {m_OwnerName}

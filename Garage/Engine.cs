@@ -10,9 +10,9 @@ namespace Garage
     {
         public enum eEnergyType { Soler, Octan95, Octan96, Octan98, Electricity }
 
+        protected eEnergyType m_EnergyType;
         protected float m_currentEnergyCapacity;
         protected float m_MaxEnergyCapacity;
-        protected eEnergyType m_EnergyType;
 
 
         public eEnergyType FuelType
@@ -20,9 +20,14 @@ namespace Garage
             get { return m_EnergyType; }
         }
 
-
-        public Engine(float i_MaxEnergyCapacity, eEnergyType i_EnergyType)
+        public Engine(eEnergyType i_EnergyType, float i_MaxEnergyCapacity, float i_initialEnergyCapacity)
         {
+            if (i_initialEnergyCapacity > i_MaxEnergyCapacity)
+            {
+                //throw exception
+            }
+
+            m_currentEnergyCapacity = i_initialEnergyCapacity;
             m_MaxEnergyCapacity = i_MaxEnergyCapacity;
             m_EnergyType = i_EnergyType;
         }
