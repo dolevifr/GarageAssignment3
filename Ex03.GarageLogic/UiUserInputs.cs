@@ -9,51 +9,66 @@ namespace Ex03.ConsoleUI
   
     internal class UiUserInputs
     {
-       
-        string getVehicleLicenseNumber()
+        public string GetVehicleLicenseNumber()
         {
             return Console.ReadLine();
         }
-        int getVehicleType()
+        public int GetVehicleType()
         {
             int optionOfVehicle;
-            UITextMessages.carTypeMessage();
+            Console.WriteLine(UITextMessages.k_CarTypeMessage);
             Int32.TryParse(Console.ReadLine(), out optionOfVehicle);
-            
+            return optionOfVehicle;
         }
-        int getCarElectricityCurrAmount()
+        public int GetCarElectricityCurrAmount()
         {
-            int hoursOfElectricityInBattery; 
-            UITextMessages.CarElectricityAmount();
+            int hoursOfElectricityInBattery;
+            Console.WriteLine(UITextMessages.k_carElectricityCurrAmount);
             Int32.TryParse(Console.ReadLine(),out hoursOfElectricityInBattery);
+            return hoursOfElectricityInBattery;
         }
         
-        int GetCarFuelCurrAmount()
+        public int GetCarFuelCurrAmount()
         {
             int amountOfFuelInCar;
-            UITextMessages.CarFuelCurrAmount();
-            Int32.TryParse(Console.ReadLine(),out amountOfFuelInCar);
+            Console.WriteLine(UITextMessages.k_carFuelCurrAmount);
+            Int32.TryParse(Console.ReadLine(), out amountOfFuelInCar);
+            return amountOfFuelInCar;
         }
 
-        void getCarColor()
+        public string GetCarColor()
         {
-            Console.ReadLine();
+            Console.WriteLine(UITextMessages.k_vehicleColor);
+            return Console.ReadLine();
         }
-        void getCarDoors()
+        public int GetCarDoors()
         {
-            Console.ReadLine();
+            int numOfCarDoors;
+            Console.WriteLine(UITextMessages.k_numOfVehicleDoors);
+            Int32.TryParse(Console.ReadLine(),out numOfCarDoors);
+            return numOfCarDoors;
         }
-        void getMotorcycleLicenseType()
+        public int GetMotorcycleLicenseType()
         {
-            Console.ReadLine();
+            int licenseOption;
+            Console.WriteLine(UITextMessages.k_motorcycleLicenseType);
+            Int32.TryParse(Console.ReadLine(), out licenseOption);
+            return licenseOption;
+
         }
-        void getAirPressureInWheels()
+        public int GetAirPressureInWheels()
         {
-            Console.ReadLine();
+            int currAirPressure;
+            Console.WriteLine(UITextMessages.k_wheelsCurrAirPressure);
+            Int32.TryParse(Console.ReadLine(), out currAirPressure);
+            return currAirPressure;
         }
-        void getIsRefrigeratorTruck()
+        public int GetIsRefrigeratorTruck()
         {
-            Console.ReadLine();
+            int isRefrigeratorTruckOption;
+            Console.WriteLine(UITextMessages.k_isRefrigeratorTruck);
+            Int32.TryParse(Console.ReadLine(), out isRefrigeratorTruckOption);
+            return isRefrigeratorTruckOption;
         }
     }
 }
