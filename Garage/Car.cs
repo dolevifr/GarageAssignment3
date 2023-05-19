@@ -1,14 +1,10 @@
-﻿using Garage;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Garage
+﻿namespace Garage
 {
     public class Car : Vehicle
     {
+        const int k_maxNumOfDoors = 5;
+        const int k_minNUmOfDoors = 2;
+
         string m_colorOfCar;
         int m_numOfDoors;
 
@@ -18,5 +14,6 @@ namespace Garage
             m_numOfDoors = numOfDoors;
             m_colorOfCar = colorOfCar;
         }
+
     }
 }

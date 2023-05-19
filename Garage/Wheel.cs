@@ -9,23 +9,30 @@ namespace Garage
     public class Wheel
     {
         private string m_manufacturerName;
-        private float m_currentPsi;
-        private float m_maxPsi;
+        private float m_currentPSI;
+        private float m_maxPSI;
         
+        public Wheel(string i_manufacturerName, float i_currentPSI, float i_maxPSI)
+        {
+            m_manufacturerName = i_manufacturerName;
+            m_currentPSI = i_currentPSI;
+            m_maxPSI = i_maxPSI;
+        }
+
         private void pumpAirToWheel(int airToFill)
         { 
-            if(airToFill + m_currentPsi > m_maxPsi)
+            if(airToFill + m_currentPSI > m_maxPSI)
             {
                 System.Console.WriteLine("error");//need to add exception
             }
             else
             {
-                m_currentPsi += airToFill;
+                m_currentPSI += airToFill;
             }
         }
         public void FillToMaxAirPressur()
         {
-            m_currentPsi = m_maxPsi;
+            m_currentPSI = m_maxPSI;
         }
 
         public string ManufacturerName
@@ -35,12 +42,12 @@ namespace Garage
 
         public float CurrentPsi
         { 
-            get { return m_currentPsi;  }
+            get { return m_currentPSI;  }
         }
 
         public float MaxPsi
         {
-            get { return m_maxPsi; }
+            get { return m_maxPSI; }
         }
 
     }

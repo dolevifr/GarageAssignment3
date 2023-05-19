@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Garage
 {
@@ -64,7 +61,7 @@ namespace Garage
         {
             Vehicle currentVehicle = vehiclesInTheGarage[i_licenseNumberOfVehicle].m_Vehicle;
             currentVehicle.AddEnergy(i_FuelToAddLiters, i_fuelType);
-        }
+        }   
 
         public void RechargeVehicle(string i_licenseNumberOfVehicle, float i_energyAmountToAdd)
         {

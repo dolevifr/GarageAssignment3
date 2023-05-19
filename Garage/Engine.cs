@@ -20,6 +20,11 @@ namespace Garage
             get { return m_EnergyType; }
         }
 
+        public float EnergyPertencege
+        {
+            get { return m_currentEnergyCapacity / m_MaxEnergyCapacity; }
+        }
+
         public Engine(eEnergyType i_EnergyType, float i_MaxEnergyCapacity, float i_initialEnergyCapacity)
         {
             if (i_initialEnergyCapacity > i_MaxEnergyCapacity)

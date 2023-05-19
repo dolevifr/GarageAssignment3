@@ -13,11 +13,12 @@ namespace Garage
         protected List<Wheel> m_wheelsList;
         protected Engine m_engineBase;
 
-        public Vehicle(string i_licenseNumber, string i_modelName, Engine i_engineBase)
+        public Vehicle(string i_licenseNumber, string i_modelName, List<Wheel> i_wheelList, Engine i_engineBase)
         {
             m_licenseNumber = i_licenseNumber;
             m_modelName = i_modelName;
             m_engineBase = i_engineBase;
+            m_wheelsList = i_wheelList;
         }
 
         public string LicenseNumber

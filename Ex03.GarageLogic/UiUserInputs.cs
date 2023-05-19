@@ -10,19 +10,31 @@ namespace Ex03.ConsoleUI
     internal class UiUserInputs
     {
        
-        void getVehicleLicenseNumber()
+        string getVehicleLicenseNumber()
         {
-            Console.ReadLine();
+            return Console.ReadLine();
+        }
+        int getVehicleType()
+        {
+            int optionOfVehicle;
+            UITextMessages.carTypeMessage();
+            Int32.TryParse(Console.ReadLine(), out optionOfVehicle);
             
         }
-        void getVehicleType()
+        int getCarElectricityCurrAmount()
         {
-            Console.ReadLine();
+            int hoursOfElectricityInBattery; 
+            UITextMessages.CarElectricityAmount();
+            Int32.TryParse(Console.ReadLine(),out hoursOfElectricityInBattery);
         }
-        void getCarFuel()
+        
+        int GetCarFuelCurrAmount()
         {
-            Console.ReadLine();
+            int amountOfFuelInCar;
+            UITextMessages.CarFuelCurrAmount();
+            Int32.TryParse(Console.ReadLine(),out amountOfFuelInCar);
         }
+
         void getCarColor()
         {
             Console.ReadLine();
