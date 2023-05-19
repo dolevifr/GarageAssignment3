@@ -7,18 +7,50 @@ using System.Threading.Tasks;
 namespace Garage
 {
     public enum AllowedVehicleTypes { Car, Motorcycle, Truck  }
+
     class VehicleCreator
     {
-        public void CreateWheels(int i_NumOfWheels, string i_manufacturerName, int i_maxPSI, int i_initialPSI)
+        public class VehicleInformation
         {
-            List<Wheel> wheelList= new List<Wheel>(i_NumOfWheels);
+            public string m_modelName;
+            public string m_licenseNumber;
+        }
+
+        public class EngineInformation
+        {
+            public Engine.eEnergyType m_EnergyType;
+            public float m_currentEnergyCapacity;
+            public float m_MaxEnergyCapacity;
+        }
+
+        public class WheelsSetInformation
+        {
+            public int m_NumOfWheels;
+            public string m_manufacturerName;
+            public float m_maxPSI;
+            public float m_initialPSI;
+        }
+
+        private List<Wheel> createWheelsCollection(WheelsSetInformation wheelsSetInformation)
+        {
+            List<Wheel> wheelList= new List<Wheel>(wheelsSetInformation.m_NumOfWheels);
             
-            for(int i = 0; i < i_NumOfWheels; i++)
+            for(int i = 0; i < wheelsSetInformation.m_NumOfWheels; i++)
             {
-                wheelList.Add(new Wheel(i_manufacturerName, i_initialPSI, i_maxPSI));
+                wheelList.Add(new Wheel(wheelsSetInformation.m_manufacturerName, wheelsSetInformation.m_initialPSI, wheelsSetInformation.m_maxPSI));
             }
 
             return wheelList;
+        }
+
+        private Engine createElectricEngine(EngineInformation engineInformation)
+        {
+            return new ElectricEngine(engineInformation.m_MaxEnergyCapacity, engineInformation.m_currentEnergyCapacity);
+        }
+
+        private Car createCar(VehicleInformation vehicleInformation, EngineInformation engineInformation, )
+        {
+
         }
     }
 }

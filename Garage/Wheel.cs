@@ -19,17 +19,7 @@ namespace Garage
             m_maxPSI = i_maxPSI;
         }
 
-        private void pumpAirToWheel(int airToFill)
-        { 
-            if(airToFill + m_currentPSI > m_maxPSI)
-            {
-                System.Console.WriteLine("error");//need to add exception
-            }
-            else
-            {
-                m_currentPSI += airToFill;
-            }
-        }
+
         public void FillToMaxAirPressur()
         {
             m_currentPSI = m_maxPSI;
@@ -48,6 +38,18 @@ namespace Garage
         public float MaxPsi
         {
             get { return m_maxPSI; }
+        }
+
+        private void pumpAirToWheel(int airToFill)
+        {
+            if (airToFill + m_currentPSI > m_maxPSI)
+            {
+                Console.WriteLine("error");//need to add exception
+            }
+            else
+            {
+                m_currentPSI += airToFill;
+            }
         }
 
     }
