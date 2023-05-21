@@ -33,7 +33,17 @@ namespace Ex03.ConsoleUI
             validateIntInput(UITextMessages.k_carElectricityCurrAmount, out hoursOfElectricityInBattery);
             return hoursOfElectricityInBattery;
         }
-        
+        public string GetVehicleModelName()
+        {
+            Console.WriteLine(UITextMessages.k_vehicleModelName);
+            return Console.ReadLine();
+        }
+        public bool IsElectricVehicle()
+        {
+            int electricVehicle;
+            validateIntInput(UITextMessages.k_isElectricVehicle, out electricVehicle);
+            return electricVehicle == 1 ? true : false;
+        }
         public int GetCarFuelCurrAmount()
         {
             int amountOfFuelInCar;

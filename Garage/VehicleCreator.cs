@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace Garage
+namespace Ex03.GarageLogic
 {
     public enum AllowedVehicleTypes { Car, Motorcycle, Truck  }
 
-    class VehicleCreator
+    public class VehicleCreator
     {
         public class VehicleInformation
         {

@@ -5,11 +5,9 @@ namespace Ex03.ConsoleUI
     {
         public const string k_CarTypeMessage = @" 
 Please choose which vehicle you wish to insert the garage:
-1.Fuel based car
-2.Electric car
-3.Fuel based motorcycle
-4. electric motorcycle
-5.Truck";
+1.Car
+2.Motorcycle
+3.Truck";
         public const string k_carFuelCurrAmount = "Please insert amount of fuel in the car.";
         public const string k_carElectricityCurrAmount = "Please insert how many hours left in the battery.";
         public const string k_vehicleColor = " Please insert vehicle color";
@@ -26,6 +24,13 @@ Please insert motorcycle license type:
 the truck is refrigerator truck? please choose 1 or 2
 1.Yes
 2.No";
+
+        public const string k_isElectricVehicle = @"
+please choose 1 or 2
+1.Electric vehicle
+2.Regular vehicle";
+
+        public const string k_vehicleModelName = "please insert vehicle model name";
 
 
     }
