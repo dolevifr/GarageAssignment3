@@ -37,6 +37,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GarageInserter.cs" />
     <Compile Include="UITextMessages.cs" />
     <Compile Include="UiUserInputs.cs" />
   </ItemGroup>

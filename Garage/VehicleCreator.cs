@@ -27,6 +27,13 @@ namespace Garage
             public float m_initialPSI;
         }
 
+        public class CarInformation
+        {
+            string m_colorOfCar;
+            int m_numOfDoors;
+
+        }
+
         private List<Wheel> createWheelsCollection(WheelsSetInformation wheelsSetInformation)
         {
             List<Wheel> wheelList= new List<Wheel>(wheelsSetInformation.m_NumOfWheels);
@@ -49,8 +56,30 @@ namespace Garage
             return new FuelEngine(engineInformation.m_EnergyType, engineInformation.m_MaxEnergyCapacity, engineInformation.m_currentEnergyCapacity);
         }
 
-        private Vehicle createCar(VehicleInformation vehicleInformation, EngineInformation engineInformation)
+        private Engine createEngine(EngineInformation engineInformation)
         {
+            Engine currentEngine;
+
+            if (engineInformation.m_EnergyType == Engine.eEnergyType.Electricity)
+            {
+                currentEngine = createElectricEngine(engineInformation);
+            }
+
+            else
+            {
+                currentEngine = createFuelEngine(engineInformation);
+            }
+              
+            return currentEngine;
+        }
+
+
+        private Vehicle CreateCarFromInfo(VehicleInformation vehicleInformation, EngineInformation engineInformation,
+            WheelsSetInformation wheelsInformation, CarInformation carInformation)
+        {
+            List<Wheel> wheelsForVehicle = createWheelsCollection(wheelsInformation);
+            Engine engineForVehicle = createEngine(engineInformation);
+
             return null;
         }
     }
