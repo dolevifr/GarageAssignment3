@@ -6,81 +6,67 @@ namespace Ex03.GarageLogic
 
     public class VehicleCreator
     {
-        public class VehicleInformation
+        private List<Wheel> createWheelsCollection(DTO.WheelsSetInformation i_wheelsSetInformation)
         {
-            public string m_modelName;
-            public string m_licenseNumber;
-        }
-
-        public class EngineInformation
-        {
-            public Engine.eEnergyType m_EnergyType;
-            public float m_currentEnergyCapacity;
-            public float m_MaxEnergyCapacity;
-        }
-
-        public class WheelsSetInformation
-        {
-            public int m_NumOfWheels;
-            public string m_manufacturerName;
-            public float m_maxPSI;
-            public float m_initialPSI;
-        }
-
-        public class CarInformation
-        {
-            string m_colorOfCar;
-            int m_numOfDoors;
-
-        }
-
-        private List<Wheel> createWheelsCollection(WheelsSetInformation wheelsSetInformation)
-        {
-            List<Wheel> wheelList= new List<Wheel>(wheelsSetInformation.m_NumOfWheels);
+            List<Wheel> wheelList= new List<Wheel>(i_wheelsSetInformation.m_NumOfWheels);
             
-            for(int i = 0; i < wheelsSetInformation.m_NumOfWheels; i++)
+            for(int i = 0; i < i_wheelsSetInformation.m_NumOfWheels; i++)
             {
-                wheelList.Add(new Wheel(wheelsSetInformation.m_manufacturerName, wheelsSetInformation.m_initialPSI, wheelsSetInformation.m_maxPSI));
+                wheelList.Add(new Wheel(i_wheelsSetInformation.m_manufacturerName, i_wheelsSetInformation.m_initialPSI, i_wheelsSetInformation.m_maxPSI));
             }
 
             return wheelList;
         }
 
-        private Engine createElectricEngine(EngineInformation engineInformation)
-        {
-            return new ElectricEngine(engineInformation.m_MaxEnergyCapacity, engineInformation.m_currentEnergyCapacity);
-        }
 
-        private Engine createFuelEngine(EngineInformation engineInformation)
-        {
-            return new FuelEngine(engineInformation.m_EnergyType, engineInformation.m_MaxEnergyCapacity, engineInformation.m_currentEnergyCapacity);
-        }
-
-        private Engine createEngine(EngineInformation engineInformation)
+        private Engine createEngine(DTO.EngineInformation i_engineInformation)
         {
             Engine currentEngine;
 
-            if (engineInformation.m_EnergyType == Engine.eEnergyType.Electricity)
+            if (i_engineInformation.m_EnergyType == Engine.eEnergyType.Electricity)
             {
-                currentEngine = createElectricEngine(engineInformation);
+                currentEngine = new ElectricEngine(i_engineInformation.m_MaxEnergyCapacity, i_engineInformation.m_currentEnergyCapacity);
             }
-
             else
             {
-                currentEngine = createFuelEngine(engineInformation);
+                currentEngine = new FuelEngine(i_engineInformation.m_EnergyType, i_engineInformation.m_MaxEnergyCapacity, i_engineInformation.m_currentEnergyCapacity);
             }
               
             return currentEngine;
         }
 
 
-        private Vehicle CreateCarFromInfo(VehicleInformation vehicleInformation, EngineInformation engineInformation,
-            WheelsSetInformation wheelsInformation, CarInformation carInformation)
+        private Vehicle CreateCarFromInfo(DTO.VehicleInformation i_vehicleInformation, DTO.EngineInformation i_engineInformation,
+            DTO.WheelsSetInformation i_wheelsInformation, DTO.CarInformation i_carInformation)
+        {
+            List<Wheel> wheelsForVehicle = createWheelsCollection(i_wheelsInformation);
+            Engine engineForVehicle = createEngine(i_engineInformation);
+
+            return new Car(i_carInformation.m_colorOfCar, i_carInformation.m_numOfDoors,
+                            i_vehicleInformation.m_licenseNumber, i_vehicleInformation.m_modelName,
+                            engineForVehicle, wheelsForVehicle);
+        }
+
+        private Vehicle CreateMotorCycleFromInfo(DTO.VehicleInformation i_vehicleInformation, DTO.EngineInformation i_engineInformation,
+            DTO.WheelsSetInformation i_wheelsInformation, DTO.MotorcycleInformation i_motorcycleInformation)
+        {
+            List<Wheel> wheelsForVehicle = createWheelsCollection(i_wheelsInformation);
+            Engine engineForVehicle = createEngine(i_engineInformation);
+
+            return new Motorcycle(i_motorcycleInformation.m_licenseType, i_motorcycleInformation.m_engineVolume,
+                i_vehicleInformation.m_licenseNumber, i_vehicleInformation.m_modelName,
+                engineForVehicle, wheelsForVehicle);
+        }
+
+        private Vehicle CreateTruckFromInfo(DTO.VehicleInformation vehicleInformation, DTO.EngineInformation engineInformation,
+            DTO.WheelsSetInformation wheelsInformation, DTO.TruckInformation truckInformation)
         {
             List<Wheel> wheelsForVehicle = createWheelsCollection(wheelsInformation);
             Engine engineForVehicle = createEngine(engineInformation);
 
-            return null;
+            return new Truck(truckInformation.m_isCarryingDangerousMaterials, truckInformation.m_maxCargoLoad,
+                vehicleInformation.m_licenseNumber, vehicleInformation.m_modelName,
+                engineForVehicle, wheelsForVehicle);
         }
     }
 }

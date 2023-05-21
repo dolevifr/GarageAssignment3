@@ -38,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Car.cs" />
+    <Compile Include="DTO.cs" />
     <Compile Include="ElectricEngine.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="GarageHandler.cs" />

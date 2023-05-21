@@ -11,9 +11,11 @@ namespace Ex03.GarageLogic
         bool m_isCarryingDangerousMaterials;
         float m_maxCargoLoad;
 
-        Truck(string i_licenseNumber, string i_modelName, Engine i_engineBase, bool i_isCarryingDangerousMaterials, float i_maxCargoLoad) :
-            base(i_licenseNumber, i_modelName, i_engineBase)
+        public Truck(bool i_isCarryingDangerousMaterials, float i_maxCargoLoad, string i_licenseNumber, string i_modelName, Engine i_engineBase, List<Wheel> wheelsList) :
+            base(i_licenseNumber, i_modelName, wheelsList,i_engineBase)
         {
+            m_isCarryingDangerousMaterials = i_isCarryingDangerousMaterials;
+            m_maxCargoLoad = i_maxCargoLoad;
         }
     }
 }
