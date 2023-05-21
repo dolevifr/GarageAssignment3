@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Garage
 {
@@ -48,9 +44,14 @@ namespace Garage
             return new ElectricEngine(engineInformation.m_MaxEnergyCapacity, engineInformation.m_currentEnergyCapacity);
         }
 
-        private Car createCar(VehicleInformation vehicleInformation, EngineInformation engineInformation, )
+        private Engine createFuelEngine(EngineInformation engineInformation)
         {
+            return new FuelEngine(engineInformation.m_EnergyType, engineInformation.m_MaxEnergyCapacity, engineInformation.m_currentEnergyCapacity);
+        }
 
+        private Vehicle createCar(VehicleInformation vehicleInformation, EngineInformation engineInformation)
+        {
+            return null;
         }
     }
 }
