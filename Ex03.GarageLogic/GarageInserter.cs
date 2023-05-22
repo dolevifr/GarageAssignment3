@@ -11,6 +11,8 @@ namespace Ex03.ConsoleUI
         private UiUserInputs userInput;
         
         public enum eCarType {Car, Motorcycle, Truck };
+        GarageLogic.Motorcycle motorcycle;
+        GarageLogic.Motorcycle.eLicenseType motorcycleliLcenseType;
        public void InsertVehicle()
        {
             eCarType vehiclType;
@@ -33,10 +35,23 @@ namespace Ex03.ConsoleUI
             }
             else if(vehiclType == eCarType.Motorcycle)
             {
-                
-
+                if (userInput.IsElectricVehicle())
+                {
+                    int batteryHours = userInput.GetCarElectricityCurrAmount();
+                }
+                else
+                {
+                    int currFuelAmount = userInput.GetCarFuelCurrAmount();
+                }
+                motorcycleliLcenseType = (GarageLogic.Motorcycle.eLicenseType)userInput.GetMotorcycleLicenseType();
+                int motorcycleEngineVolume = userInput.GetEngineVolumeOfMotorcycle();
             }
 
+            else if(vehiclType == eCarType.Truck)
+            {
+                bool isRefrigeratorTruck = userInput.GetIsRefrigeratorTruck();
+                float truckCargoVolume = userInput.GetCargoVolumeOfTruck();
+            }
        }
     }
 }

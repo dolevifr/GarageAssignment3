@@ -75,11 +75,27 @@ namespace Ex03.ConsoleUI
             validateIntInput(UITextMessages.k_wheelsCurrAirPressure, out currAirPressure);
             return currAirPressure;
         }
-        public int GetIsRefrigeratorTruck()
+        public bool GetIsRefrigeratorTruck()
         {
             int isRefrigeratorTruckOption;
             validateIntInput(UITextMessages.k_isRefrigeratorTruck, out isRefrigeratorTruckOption);
-            return isRefrigeratorTruckOption;
+            return isRefrigeratorTruckOption == 1 ? true : false;
+        }
+        public int GetEngineVolumeOfMotorcycle()
+        {
+            int EngineVolume;
+            validateIntInput(UITextMessages.k_motorcycleEngineVolume, out EngineVolume);
+            return EngineVolume;
+        }
+        public float GetCargoVolumeOfTruck()
+        {
+            float CargoVolume;
+            Console.WriteLine(UITextMessages.k_TruckCargoVolume);
+            if (!float.TryParse(Console.ReadLine(), out CargoVolume))
+            {
+                //throw exception
+            }
+            return CargoVolume;
         }
     }
 }
