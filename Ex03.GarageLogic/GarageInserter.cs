@@ -2,9 +2,10 @@ namespace Ex03.ConsoleUI
 {
     class GarageInserter
     {
+        public enum eCarType { Car, Motorcycle, Truck };
+
         private UiUserInputs userInput;
-        
-        public enum eCarType {Car, Motorcycle, Truck };
+
        public void InsertVehicle()
        {
             eCarType vehiclType;
