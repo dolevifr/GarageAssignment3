@@ -14,5 +14,15 @@ namespace Ex03.GarageLogic
             m_engineVolume = i_engineVolume;
             m_licenseType = i_licenseType;
         }
+
+        public eLicenseType LicenseType
+        {
+            get { return m_licenseType; }
+        }
+
+        public int EngineVolume
+        {
+            get { return m_engineVolume; }
+        }
     }
 }

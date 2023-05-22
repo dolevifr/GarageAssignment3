@@ -4,13 +4,13 @@ namespace Ex03.GarageLogic
 {
     class SupportedVehicleValidator
     {
-        const string k_placeholderForString = "";
-        const int k_placeholderInteger = -1;
-        const bool k_placeholderIsCaryingDangeriousMaterials = true;
-        const Motorcycle.eLicenseType k_placeholderLisenceType = Motorcycle.eLicenseType.A1;
+        private const string k_placeholderForString = "";
+        private const int k_placeholderInteger = -1;
+        private const bool k_placeholderIsCaryingDangeriousMaterials = true;
+        private const Motorcycle.eLicenseType k_placeholderLisenceType = Motorcycle.eLicenseType.A1;
 
-        VehicleComponentFactory m_vehicleComponentFactory = new VehicleComponentFactory();
-        List<Vehicle> m_SupportedVehicleInGarageList;
+        private readonly VehicleComponentFactory m_vehicleComponentFactory = new VehicleComponentFactory();
+        private readonly List<Vehicle> m_SupportedVehicleInGarageList = new List<Vehicle>();
 
 
         public SupportedVehicleValidator()
@@ -34,12 +34,12 @@ namespace Ex03.GarageLogic
             return isVehicleSupported;
         }
 
-        private static bool compareVehicles(Vehicle vehicleToCompare, Vehicle truckToCompare)
+        private static bool compareVehicles(Vehicle i_vehicle1, Vehicle i_vehicle2)
         {
-            bool sameWheelsNumber = vehicleToCompare.WheelsNum == truckToCompare.WheelsNum;
-            bool sameMaxPSIForWheels = vehicleToCompare.MaxPSI == truckToCompare.MaxPSI;
-            bool sameFuelType = vehicleToCompare.EngineType == truckToCompare.EngineType;
-            bool maxEnergyCapacity = vehicleToCompare.MaxEngineCapacity == truckToCompare.MaxEngineCapacity;
+            bool sameWheelsNumber = i_vehicle1.WheelsNum == i_vehicle2.WheelsNum;
+            bool sameMaxPSIForWheels = i_vehicle1.MaxPSI == i_vehicle2.MaxPSI;
+            bool sameFuelType = i_vehicle1.EngineType == i_vehicle2.EngineType;
+            bool maxEnergyCapacity = i_vehicle1.MaxEngineCapacity == i_vehicle2.MaxEngineCapacity;
 
             return sameWheelsNumber && sameMaxPSIForWheels && sameFuelType && maxEnergyCapacity;
         }

@@ -8,12 +8,15 @@ namespace Ex03.ConsoleUI
 {
     class GarageInserter
     {
+        public enum eCarType { Car, Motorcycle, Truck };
+
+
         private UiUserInputs userInput;
         private GarageLogic.GarageLogicEngine logicEngine = new GarageLogic.GarageLogicEngine();
         private GarageLogic.Engine.eEnergyType eEnergyType;
-        public enum eCarType { Car, Motorcycle, Truck };
         GarageLogic.Motorcycle motorcycle;
         GarageLogic.Motorcycle.eLicenseType motorcycleliLcenseType;
+
         public void InsertVehicle()
         {
             eCarType vehiclType;
@@ -44,12 +47,14 @@ namespace Ex03.ConsoleUI
             int numOfCarDoors = userInput.GetCarDoors();
             logicEngine.AddWheelsToCurrentCar(userInput.GetNumberOfWheelsInVehicle(), userInput.GetWheelManufacturerName(), userInput.GetMaxAirPressureInWheels());
         }
+
         private void insertTruck()
         {
             bool isRefrigeratorTruck = userInput.GetIsRefrigeratorTruck();
             float truckCargoVolume = userInput.GetCargoVolumeOfTruck();
             logicEngine.AddWheelsToCurrentCar(userInput.GetNumberOfWheelsInVehicle(), userInput.GetWheelManufacturerName(), userInput.GetMaxAirPressureInWheels());
         }
+
         private void insertMotorcycle()
         {
             electricOrRegularEngine();
@@ -57,6 +62,7 @@ namespace Ex03.ConsoleUI
             logicEngine.AddWheelsToCurrentCar(userInput.GetNumberOfWheelsInVehicle(), userInput.GetWheelManufacturerName(), userInput.GetMaxAirPressureInWheels());
             int motorcycleEngineVolume = userInput.GetEngineVolumeOfMotorcycle();
         }
+
         private void electricOrRegularEngine()
         {
             if (userInput.IsElectricVehicle())
