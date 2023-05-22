@@ -12,7 +12,10 @@ Please choose which vehicle you wish to insert the garage:
         public const string k_carElectricityCurrAmount = "Please insert how many hours left in the battery.";
         public const string k_vehicleColor = "Please insert vehicle color";
         public const string k_numOfVehicleDoors = "Please insert amount of doors in Vehicle";
-        public const string k_wheelsCurrAirPressure = "Please insert current air pressure in wheels";
+        public const string k_wheelsMaxAirPressure = "Please insert max air pressure in wheel";
+        public const string k_wheelsCurrAirPressure = "Please insert current air pressure in wheel";
+        public const string k_wheelManufacturerName = "Please insert wheel manufacturer name";
+        public const string k_wheelNumberInVehicle = "Please insert number of wheels in the vehicl";
         public const string k_motorcycleLicenseType = @"
 Please insert motorcycle license type:
 1.A1
@@ -32,6 +35,6 @@ please choose 1 or 2
 
         public const string k_vehicleModelName = "Please insert vehicle model name";
         public const string k_motorcycleEngineVolume = "Please insert engine volume";
-        public const string k_TruckCargoVolume = "Please insert cargo volume";
+        public const string k_truckCargoVolume = "Please insert cargo volume";
     }
 }

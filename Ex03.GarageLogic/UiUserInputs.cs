@@ -21,6 +21,23 @@ namespace Ex03.ConsoleUI
         {
             return Console.ReadLine();
         }
+        public string GetWheelManufacturerName()
+        {
+            Console.WriteLine(UITextMessages.k_wheelManufacturerName);
+            return Console.ReadLine();
+        }
+        public int GetMaxAirPressureInWheels()
+        {
+            int maxPressureInWheels;
+            validateIntInput(UITextMessages.k_wheelsMaxAirPressure, out maxPressureInWheels);
+            return maxPressureInWheels;
+        }
+        public int GetNumberOfWheelsInVehicle()
+        {
+            int numOfWheels;
+            validateIntInput(UITextMessages.k_wheelNumberInVehicle, out numOfWheels);
+            return numOfWheels;
+        }
         public int GetVehicleType()
         {
             int optionOfVehicle;
