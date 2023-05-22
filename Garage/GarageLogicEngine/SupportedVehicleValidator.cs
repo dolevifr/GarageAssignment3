@@ -11,8 +11,40 @@ namespace Ex03.GarageLogic
 
         VehicleComponentFactory m_vehicleComponentFactory = new VehicleComponentFactory();
         List<Vehicle> m_SupportedVehicleInGarageList;
-        
+
+
         public SupportedVehicleValidator()
+        {
+            initializeListOfSupportedVehicles();
+        }
+
+        public bool IsVehicleSupportedInGarage(Vehicle i_vehicle)
+        {
+            bool isVehicleSupported = false;
+
+            foreach(Vehicle serviceableVehicle in m_SupportedVehicleInGarageList)
+            {
+                if (compareVehicles(serviceableVehicle, i_vehicle))
+                {
+                    isVehicleSupported = true;
+                    break;
+                }
+            }
+
+            return isVehicleSupported;
+        }
+
+        private static bool compareVehicles(Vehicle vehicleToCompare, Vehicle truckToCompare)
+        {
+            bool sameWheelsNumber = vehicleToCompare.WheelsNum == truckToCompare.WheelsNum;
+            bool sameMaxPSIForWheels = vehicleToCompare.MaxPSI == truckToCompare.MaxPSI;
+            bool sameFuelType = vehicleToCompare.EngineType == truckToCompare.EngineType;
+            bool maxEnergyCapacity = vehicleToCompare.MaxEngineCapacity == truckToCompare.MaxEngineCapacity;
+
+            return sameWheelsNumber && sameMaxPSIForWheels && sameFuelType && maxEnergyCapacity;
+        }
+
+        private void initializeListOfSupportedVehicles()
         {
             Vehicle vehicle;
 
@@ -40,12 +72,6 @@ namespace Ex03.GarageLogic
             vehicle.Engine = m_vehicleComponentFactory.createEngine(Engine.eEnergyType.Soler, 135);
             vehicle.Wheels = m_vehicleComponentFactory.createWheelsCollection(14, k_placeholderForString, 26);
             m_SupportedVehicleInGarageList.Add(vehicle);
-        }
-
-        private bool compare()
-        {
-
-            return false;
         }
     }
 }

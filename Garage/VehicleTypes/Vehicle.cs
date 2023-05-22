@@ -4,11 +4,11 @@ namespace Ex03.GarageLogic
 {
     public abstract class Vehicle
     {
-        protected string m_modelName;
-        protected string m_licenseNumber;
-        protected int m_numOfWheels;
-        protected List<Wheel> m_wheelsList = new List<Wheel>();
-        protected Engine m_engineBase = null;
+        protected readonly string m_modelName;
+        protected readonly string m_licenseNumber;
+        protected readonly int m_numOfWheels;
+        protected readonly List<Wheel> m_wheelsList = new List<Wheel>();
+        protected Engine m_vehicleEngine = null;
 
         public Vehicle(string i_licenseNumber, string i_modelName, int i_numOfWheels)
         {
@@ -19,7 +19,7 @@ namespace Ex03.GarageLogic
 
         public Engine Engine
         {
-            set { m_engineBase = value; }
+            set { m_vehicleEngine = value; }
         }
 
         public List<Wheel> Wheels
@@ -38,6 +38,12 @@ namespace Ex03.GarageLogic
                 }
             }
         }
+
+        public int WheelsNum
+        {
+            get { return m_numOfWheels; }
+        }
+        
         public string LicenseNumber
         {
             get { return m_licenseNumber; }
@@ -48,14 +54,23 @@ namespace Ex03.GarageLogic
             get { return m_licenseNumber; }
         }
 
+        public float MaxPSI
+        {
+            get { return m_wheelsList[0].MaxPsi; }
+        }
+        
+        public float MaxEngineCapacity
+        {
+            get { return m_vehicleEngine.MaxEnergyCapacity; }
+        }
         public Engine.eEnergyType EngineType
         {
-            get { return m_engineBase.FuelType; }
+            get { return m_vehicleEngine.FuelType; }
         }
 
         public void AddEnergy(float i_energyToAdd, Engine.eEnergyType i_EnergyType)
         {
-            m_engineBase.AddEnergy(i_energyToAdd, i_EnergyType);
+            m_vehicleEngine.AddEnergy(i_energyToAdd, i_EnergyType);
         }
 
         public void FillAllTiresToMaxPSI()

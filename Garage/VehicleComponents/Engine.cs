@@ -18,6 +18,11 @@
         {
             get { return m_currentEnergyCapacity / m_MaxEnergyCapacity; }
         }
+        
+        public float MaxEnergyCapacity
+        {
+            get { return m_MaxEnergyCapacity; }
+        }
 
         public Engine(eEnergyType i_EnergyType, float i_MaxEnergyCapacity)
         {

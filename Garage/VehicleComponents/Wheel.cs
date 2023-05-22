@@ -15,11 +15,6 @@ namespace Ex03.GarageLogic
         }
 
 
-        public void FillToMaxAirPressur()
-        {
-            m_currentPSI = m_maxPSI;
-        }
-
         public string ManufacturerName
         {
             get { return m_manufacturerName; }
@@ -33,6 +28,11 @@ namespace Ex03.GarageLogic
         public float MaxPsi
         {
             get { return m_maxPSI; }
+        }
+
+        public void FillToMaxAirPressur()
+        {
+            m_currentPSI = m_maxPSI;
         }
 
         private void pumpAirToWheel(int airToFill)
