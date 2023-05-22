@@ -112,7 +112,7 @@ namespace Ex03.ConsoleUI
         public float GetCargoVolumeOfTruck()
         {
             float CargoVolume;
-            Console.WriteLine(UITextMessages.k_TruckCargoVolume);
+            Console.WriteLine(UITextMessages.k_truckCargoVolume);
             if (!float.TryParse(Console.ReadLine(), out CargoVolume))
             {
                 //throw exception
