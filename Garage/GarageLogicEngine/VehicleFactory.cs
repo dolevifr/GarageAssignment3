@@ -10,7 +10,7 @@ namespace Ex03.GarageLogic
         public Vehicle CreateCarFromInfo(DTO.VehicleInformation i_vehicleInformation, DTO.CarInformation i_carInformation)
         {
             return new Car(i_carInformation.m_colorOfCar, i_carInformation.m_numOfDoors,
-                            i_vehicleInformation.m_numOfWheels, i_vehicleInformation.m_licenseNumber, i_vehicleInformation.m_modelName);
+                            i_vehicleInformation.m_licenseNumber, i_vehicleInformation.m_modelName, i_vehicleInformation.m_numOfWheels);
         }
 
         public Vehicle CreateMotorCycleFromInfo(DTO.VehicleInformation i_vehicleInformation, DTO.MotorcycleInformation i_motorcycleInformation)

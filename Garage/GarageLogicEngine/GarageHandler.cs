@@ -33,19 +33,19 @@ namespace Ex03.GarageLogic
             vehicleInformation.m_OwnerName = i_ownerName;
             vehiclesInTheGarage.Add(i_vehicleToInsert.LicenseNumber, vehicleInformation);
         }
-        
+
         public bool IsVehicleInGarage(string i_licenseNumber)
         {
             return vehiclesInTheGarage.ContainsKey(i_licenseNumber);
         }
 
-        public string GetAllLicenseNumbersInGarage(eVehicleStatus? vehicleStatusToFilterBy=null)
+        public string GetAllLicenseNumbersInGarage(eVehicleStatus? vehicleStatusToFilterBy = null)
         {
             StringBuilder licenseIDsInGarage = new StringBuilder();
 
             foreach (VehicleInformation vehicleInfo in vehiclesInTheGarage.Values)
             {
-                if((vehicleStatusToFilterBy.HasValue && vehicleInfo.m_VehicleStaus == vehicleStatusToFilterBy) || !vehicleStatusToFilterBy.HasValue)
+                if ((vehicleStatusToFilterBy.HasValue && vehicleInfo.m_VehicleStaus == vehicleStatusToFilterBy) || !vehicleStatusToFilterBy.HasValue)
                     licenseIDsInGarage.AppendLine(vehicleInfo.m_Vehicle.LicenseNumber);
             }
 
@@ -61,7 +61,7 @@ namespace Ex03.GarageLogic
         {
             Vehicle currentVehicle = vehiclesInTheGarage[i_licenseNumberOfVehicle].m_Vehicle;
             currentVehicle.AddEnergy(i_FuelToAddLiters, i_fuelType);
-        }   
+        }
 
         public void RechargeVehicle(string i_licenseNumberOfVehicle, float i_energyAmountToAdd)
         {

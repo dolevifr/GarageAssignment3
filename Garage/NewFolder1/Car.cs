@@ -10,8 +10,8 @@ namespace Ex03.GarageLogic
         string m_colorOfCar;
         int m_numOfDoors;
 
-        public Car(string colorOfCar, int numOfDoors, string licenseNumber, string modelName, Engine engineBase, List<Wheel> wheelsList) :
-                base(licenseNumber, modelName, wheelsList, engineBase)
+        public Car(string colorOfCar, int numOfDoors, string licenseNumber, string modelName, int i_numOfWheels) :
+                base(licenseNumber, modelName, i_numOfWheels)
         {
             m_numOfDoors = numOfDoors;
             m_colorOfCar = colorOfCar;

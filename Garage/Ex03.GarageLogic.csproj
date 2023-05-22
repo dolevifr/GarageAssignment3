@@ -37,17 +37,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Car.cs" />
     <Compile Include="DTO.cs" />
-    <Compile Include="ElectricEngine.cs" />
-    <Compile Include="Engine.cs" />
-    <Compile Include="GarageHandler.cs" />
-    <Compile Include="Motorcycle.cs" />
-    <Compile Include="FuelEngine.cs" />
-    <Compile Include="Truck.cs" />
-    <Compile Include="Vehicle.cs" />
-    <Compile Include="VehicleCreator.cs" />
-    <Compile Include="Wheel.cs" />
+    <Compile Include="GarageLogicEngine\GarageHandler.cs" />
+    <Compile Include="GarageLogicEngine\SupportedVehicleValidator.cs" />
+    <Compile Include="GarageLogicEngine\VehicleComponentFactory.cs" />
+    <Compile Include="GarageLogicEngine\VehicleFactory.cs" />
+    <Compile Include="NewFolder1\Car.cs" />
+    <Compile Include="NewFolder1\Motorcycle.cs" />
+    <Compile Include="NewFolder1\Truck.cs" />
+    <Compile Include="NewFolder1\Vehicle.cs" />
+    <Compile Include="NewFolder2\ElectricEngine.cs" />
+    <Compile Include="NewFolder2\Engine.cs" />
+    <Compile Include="NewFolder2\FuelEngine.cs" />
+    <Compile Include="NewFolder2\Wheel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
