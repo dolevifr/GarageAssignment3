@@ -20,40 +20,52 @@ namespace Ex03.ConsoleUI
             string licenseNUmber = userInput.GetVehicleLicenseNumber();
             string modelName = userInput.GetVehicleModelName();
             vehiclType = (eCarType)userInput.GetVehicleType();
-            if (vehiclType == eCarType.Car)
+            if (!logicEngine.isVehicleExistsInGarage(licenseNUmber))
             {
-                if (userInput.IsElectricVehicle())
+                if (vehiclType == eCarType.Car)
                 {
-                    logicEngine.AddEngineToCurrentCar(GarageLogic.Engine.eEnergyType.Electricity, userInput.GetCarElectricityCurrAmount());
+                    insertCar();
                 }
-                else
+                else if (vehiclType == eCarType.Motorcycle)
                 {
-                    logicEngine.AddEngineToCurrentCar(GarageLogic.Engine.eEnergyType.Octan95, userInput.GetCarFuelCurrAmount());
+                    insertMotorcycle();
                 }
-                string carColor = userInput.GetCarColor();
-                int numOfCarDoors = userInput.GetCarDoors();
-                logicEngine.AddWheelsToCurrentCar(userInput.GetNumberOfWheelsInVehicle(), userInput.GetWheelManufacturerName(), userInput.GetMaxAirPressureInWheels());
+                else if (vehiclType == eCarType.Truck)
+                {
+                    insertTruck();
+                }
             }
-            else if (vehiclType == eCarType.Motorcycle)
-            {
-                if (userInput.IsElectricVehicle())
-                {
-                    int batteryHours = userInput.GetCarElectricityCurrAmount();
-                }
-                else
-                {
-                    int currFuelAmount = userInput.GetCarFuelCurrAmount();
-                }
-                motorcycleliLcenseType = (GarageLogic.Motorcycle.eLicenseType)userInput.GetMotorcycleLicenseType();
-                logicEngine.AddWheelsToCurrentCar(userInput.GetNumberOfWheelsInVehicle(), userInput.GetWheelManufacturerName(), userInput.GetMaxAirPressureInWheels());
-                int motorcycleEngineVolume = userInput.GetEngineVolumeOfMotorcycle();
-            }
-            else if(vehiclType == eCarType.Truck)
-            {
-                bool isRefrigeratorTruck = userInput.GetIsRefrigeratorTruck();
-                float truckCargoVolume = userInput.GetCargoVolumeOfTruck();
-                logicEngine.AddWheelsToCurrentCar(userInput.GetNumberOfWheelsInVehicle(), userInput.GetWheelManufacturerName(), userInput.GetMaxAirPressureInWheels());
+        }
 
+        private void insertCar()
+        {
+            electricOrRegularEngine();
+            string carColor = userInput.GetCarColor();
+            int numOfCarDoors = userInput.GetCarDoors();
+            logicEngine.AddWheelsToCurrentCar(userInput.GetNumberOfWheelsInVehicle(), userInput.GetWheelManufacturerName(), userInput.GetMaxAirPressureInWheels());
+        }
+        private void insertTruck()
+        {
+            bool isRefrigeratorTruck = userInput.GetIsRefrigeratorTruck();
+            float truckCargoVolume = userInput.GetCargoVolumeOfTruck();
+            logicEngine.AddWheelsToCurrentCar(userInput.GetNumberOfWheelsInVehicle(), userInput.GetWheelManufacturerName(), userInput.GetMaxAirPressureInWheels());
+        }
+        private void insertMotorcycle()
+        {
+            electricOrRegularEngine();
+            motorcycleliLcenseType = (GarageLogic.Motorcycle.eLicenseType)userInput.GetMotorcycleLicenseType();
+            logicEngine.AddWheelsToCurrentCar(userInput.GetNumberOfWheelsInVehicle(), userInput.GetWheelManufacturerName(), userInput.GetMaxAirPressureInWheels());
+            int motorcycleEngineVolume = userInput.GetEngineVolumeOfMotorcycle();
+        }
+        private void electricOrRegularEngine()
+        {
+            if (userInput.IsElectricVehicle())
+            {
+                logicEngine.AddEngineToCurrentCar(GarageLogic.Engine.eEnergyType.Electricity, userInput.GetCarElectricityCurrAmount());
+            }
+            else
+            {
+                logicEngine.AddEngineToCurrentCar(GarageLogic.Engine.eEnergyType.Octan98, userInput.GetCarFuelCurrAmount());
             }
         }
     }

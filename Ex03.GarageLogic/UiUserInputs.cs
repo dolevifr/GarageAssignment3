@@ -38,6 +38,11 @@ namespace Ex03.ConsoleUI
             validateIntInput(UITextMessages.k_wheelNumberInVehicle, out numOfWheels);
             return numOfWheels;
         }
+        public string GetEnergyType()
+        {
+            Console.WriteLine(UITextMessages.k_energyType);
+            return Console.ReadLine();
+        }
         public int GetVehicleType()
         {
             int optionOfVehicle;

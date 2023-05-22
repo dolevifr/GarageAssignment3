@@ -26,7 +26,7 @@ namespace Ex03.GarageLogic
             m_CurrentVehicle.Wheels = m_VehicleComponentFactory.createWheelsCollection(i_numOfWheels, i_manufacturerName, i_maxPSI);
         }
 
-        public bool isCarExistsInGarage(string i_licenseNumberOfVehicle)
+        public bool isVehicleExistsInGarage(string i_licenseNumberOfVehicle)
         {
             return m_GarageHandler.IsVehicleInGarage(i_licenseNumberOfVehicle);
         }

@@ -36,5 +36,6 @@ please choose 1 or 2
         public const string k_vehicleModelName = "Please insert vehicle model name";
         public const string k_motorcycleEngineVolume = "Please insert engine volume";
         public const string k_truckCargoVolume = "Please insert cargo volume";
+        public const string k_energyType = "Please insert fuel type";
     }
 }
