@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Ex03.ConsoleUI
-{ 
-  
+{
+
     internal class UiUserInputs
     {
         private void validateIntInput(string messageToPrint, out int intToReturn)
         {
             Console.WriteLine(messageToPrint);
-            if(!Int32.TryParse(Console.ReadLine(), out intToReturn))
+            if (!Int32.TryParse(Console.ReadLine(), out intToReturn))
             {
                 //throw exception
             }
@@ -42,7 +42,7 @@ namespace Ex03.ConsoleUI
         {
             int electricVehicle;
             validateIntInput(UITextMessages.k_isElectricVehicle, out electricVehicle);
-            return electricVehicle == 1 ? true : false;
+            return electricVehicle == 1;
         }
         public int GetCarFuelCurrAmount()
         {
@@ -75,11 +75,27 @@ namespace Ex03.ConsoleUI
             validateIntInput(UITextMessages.k_wheelsCurrAirPressure, out currAirPressure);
             return currAirPressure;
         }
-        public int GetIsRefrigeratorTruck()
+        public bool GetIsRefrigeratorTruck()
         {
             int isRefrigeratorTruckOption;
             validateIntInput(UITextMessages.k_isRefrigeratorTruck, out isRefrigeratorTruckOption);
-            return isRefrigeratorTruckOption;
+            return isRefrigeratorTruckOption == 1;
+        }
+        public int GetEngineVolumeOfMotorcycle()
+        {
+            int EngineVolume;
+            validateIntInput(UITextMessages.k_motorcycleEngineVolume, out EngineVolume);
+            return EngineVolume;
+        }
+        public float GetCargoVolumeOfTruck()
+        {
+            float CargoVolume;
+            Console.WriteLine(UITextMessages.k_TruckCargoVolume);
+            if (!float.TryParse(Console.ReadLine(), out CargoVolume))
+            {
+                //throw exception
+            }
+            return CargoVolume;
         }
     }
 }

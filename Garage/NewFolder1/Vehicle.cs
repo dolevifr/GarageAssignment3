@@ -17,6 +17,12 @@ namespace Ex03.GarageLogic
             m_numOfWheels = i_numOfWheels;
         }
 
+        public Engine Engine
+        {
+            set { m_engineBase = value; }
+        }
+
+
         public string LicenseNumber
         {
             get { return m_licenseNumber; }

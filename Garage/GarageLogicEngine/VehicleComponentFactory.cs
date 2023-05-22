@@ -4,13 +4,13 @@ namespace Ex03.GarageLogic
 {
     class VehicleComponentFactory
     {
-        public List<Wheel> createWheelsCollection(DTO.WheelsSetInformation i_wheelsSetInformation)
+        public List<Wheel> createWheelsCollection(int i_numOfWheels, string i_manufacturerName, int i_maxPSI)
         {
-            List<Wheel> wheelList = new List<Wheel>(i_wheelsSetInformation.m_numOfWheels);
+            List<Wheel> wheelList = new List<Wheel>(i_numOfWheels);
 
-            for (int i = 0; i < i_wheelsSetInformation.m_numOfWheels; i++)
+            for (int i = 0; i <i_numOfWheels; i++)
             {
-                wheelList.Add(new Wheel(i_wheelsSetInformation.m_manufacturerName, i_wheelsSetInformation.m_maxPSI));
+                wheelList.Add(new Wheel(i_manufacturerName, i_maxPSI));
             }
 
             return wheelList;

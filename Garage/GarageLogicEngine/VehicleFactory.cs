@@ -7,6 +7,8 @@ namespace Ex03.GarageLogic
         public enum AllowedVehicleTypes { Car, Motorcycle, Truck }
 
 
+
+
         public Vehicle CreateCarFromInfo(DTO.VehicleInformation i_vehicleInformation, DTO.CarInformation i_carInformation)
         {
             return new Car(i_carInformation.m_colorOfCar, i_carInformation.m_numOfDoors,
