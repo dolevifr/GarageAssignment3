@@ -14,7 +14,7 @@ namespace Ex03.GarageLogic
             public string m_OwnerName;
             public string m_OwnerPhoneNumber;
 
-            public string GetVehicleDetails(string i_licenseNumber)
+            public string GetVehicleDetails()
             {
                 return string.Format(
                 $@"License Name:   {m_Vehicle.LicenseNumber}
@@ -31,6 +31,7 @@ namespace Ex03.GarageLogic
             VehicleInformation vehicleInformation = new VehicleInformation();
             vehicleInformation.m_Vehicle = i_vehicleToInsert;
             vehicleInformation.m_OwnerName = i_ownerName;
+            vehicleInformation.m_OwnerPhoneNumber = i_ownerPhoneNumber;
             vehiclesInTheGarage.Add(i_vehicleToInsert.LicenseNumber, vehicleInformation);
         }
 
@@ -67,6 +68,16 @@ namespace Ex03.GarageLogic
         {
             Vehicle currentVehicle = vehiclesInTheGarage[i_licenseNumberOfVehicle].m_Vehicle;
             currentVehicle.AddEnergy(i_energyAmountToAdd, Engine.eEnergyType.Electricity);
+        }
+
+        public string getVehicleDetails(string i_licenseNumberOfVehicle)
+        {
+            if (!IsVehicleInGarage(i_licenseNumberOfVehicle))
+            {
+                //throw exception
+            }
+
+            return vehiclesInTheGarage[i_licenseNumberOfVehicle].GetVehicleDetails();
         }
     }
 }

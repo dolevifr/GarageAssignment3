@@ -9,7 +9,6 @@ namespace Ex03.GarageLogic
         public SupportedVehicleValidator()
         {
 
-
         }
 
 

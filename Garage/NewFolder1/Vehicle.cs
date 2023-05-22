@@ -22,7 +22,22 @@ namespace Ex03.GarageLogic
             set { m_engineBase = value; }
         }
 
+        public List<Wheel> Wheels
+        {
+            set
+            {
+                if(value.Count != m_numOfWheels)
+                {
+                    //throw exception
+                }
 
+                m_wheelsList.Clear();
+                foreach (Wheel wheel in value)
+                {
+                    m_wheelsList.Add(wheel);
+                }
+            }
+        }
         public string LicenseNumber
         {
             get { return m_licenseNumber; }
