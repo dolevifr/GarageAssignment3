@@ -43,14 +43,14 @@
     <Compile Include="GarageLogicEngine\SupportedVehicleValidator.cs" />
     <Compile Include="GarageLogicEngine\VehicleComponentFactory.cs" />
     <Compile Include="GarageLogicEngine\VehicleFactory.cs" />
-    <Compile Include="NewFolder1\Car.cs" />
-    <Compile Include="NewFolder1\Motorcycle.cs" />
-    <Compile Include="NewFolder1\Truck.cs" />
-    <Compile Include="NewFolder1\Vehicle.cs" />
-    <Compile Include="NewFolder2\ElectricEngine.cs" />
-    <Compile Include="NewFolder2\Engine.cs" />
-    <Compile Include="NewFolder2\FuelEngine.cs" />
-    <Compile Include="NewFolder2\Wheel.cs" />
+    <Compile Include="VehicleTypes\Car.cs" />
+    <Compile Include="VehicleTypes\Motorcycle.cs" />
+    <Compile Include="VehicleTypes\Truck.cs" />
+    <Compile Include="VehicleTypes\Vehicle.cs" />
+    <Compile Include="VehicleComponents\ElectricEngine.cs" />
+    <Compile Include="VehicleComponents\Engine.cs" />
+    <Compile Include="VehicleComponents\FuelEngine.cs" />
+    <Compile Include="VehicleComponents\Wheel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
