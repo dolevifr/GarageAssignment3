@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Ex03.GarageLogic
+﻿namespace Ex03.GarageLogic
 {
     public class Car : Vehicle
     {

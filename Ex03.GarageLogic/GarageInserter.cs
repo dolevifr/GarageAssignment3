@@ -48,11 +48,19 @@ namespace Ex03.ConsoleUI
                 int motorcycleEngineVolume = userInput.GetEngineVolumeOfMotorcycle();
             }
 
+<<<<<<< HEAD
             else if (vehiclType == eCarType.Truck)
+=======
+            else if(vehiclType == eCarType.Truck)
+>>>>>>> 10e7cf2cc67e744587bf3cdd8757e9944432401a
             {
                 bool isRefrigeratorTruck = userInput.GetIsRefrigeratorTruck();
                 float truckCargoVolume = userInput.GetCargoVolumeOfTruck();
             }
+<<<<<<< HEAD
         }
+=======
+       }
+>>>>>>> 10e7cf2cc67e744587bf3cdd8757e9944432401a
     }
 }
