@@ -5,9 +5,6 @@ namespace Ex03.GarageLogic
     class SupportedVehicleValidator
     {
         private const string k_placeholderForString = "";
-        private const int k_placeholderInteger = -1;
-        private const bool k_placeholderIsCaryingDangeriousMaterials = true;
-        private const Motorcycle.eLicenseType k_placeholderLisenceType = Motorcycle.eLicenseType.A1;
 
         private readonly VehicleComponentFactory m_vehicleComponentFactory = new VehicleComponentFactory();
         private readonly List<Vehicle> m_SupportedVehicleInGarageList = new List<Vehicle>();
@@ -48,27 +45,27 @@ namespace Ex03.GarageLogic
         {
             Vehicle vehicle;
 
-            vehicle = new Motorcycle(k_placeholderLisenceType, k_placeholderInteger, k_placeholderForString, k_placeholderForString, 2);
+            vehicle = new Motorcycle(k_placeholderForString, k_placeholderForString, 2);
             vehicle.Engine = m_vehicleComponentFactory.createEngine(Engine.eEnergyType.Octan98, 6.4f);
             vehicle.Wheels = m_vehicleComponentFactory.createWheelsCollection(2, k_placeholderForString, 31);
             m_SupportedVehicleInGarageList.Add(vehicle);
 
-            vehicle = new Motorcycle(k_placeholderLisenceType, k_placeholderInteger, k_placeholderForString, k_placeholderForString, 2);
+            vehicle = new Motorcycle(k_placeholderForString, k_placeholderForString, 2);
             vehicle.Engine = m_vehicleComponentFactory.createEngine(Engine.eEnergyType.Electricity, 2.6f);
             vehicle.Wheels = m_vehicleComponentFactory.createWheelsCollection(2, k_placeholderForString, 31);
             m_SupportedVehicleInGarageList.Add(vehicle);
 
-            vehicle = new Car(k_placeholderForString, 2, k_placeholderForString, k_placeholderForString, 5);
+            vehicle = new Car(k_placeholderForString, k_placeholderForString, 5);
             vehicle.Engine = m_vehicleComponentFactory.createEngine(Engine.eEnergyType.Octan95, 46);
             vehicle.Wheels = m_vehicleComponentFactory.createWheelsCollection(5, k_placeholderForString, 33);
             m_SupportedVehicleInGarageList.Add(vehicle);
 
-            vehicle = new Car(k_placeholderForString, 2, k_placeholderForString, k_placeholderForString, 5);
+            vehicle = new Car(k_placeholderForString, k_placeholderForString, 5);
             vehicle.Engine = m_vehicleComponentFactory.createEngine(Engine.eEnergyType.Electricity, 5.2f);
             vehicle.Wheels = m_vehicleComponentFactory.createWheelsCollection(5, k_placeholderForString, 33);
             m_SupportedVehicleInGarageList.Add(vehicle);
 
-            vehicle = new Truck(k_placeholderIsCaryingDangeriousMaterials, k_placeholderInteger, k_placeholderForString, k_placeholderForString, 14);
+            vehicle = new Truck(k_placeholderForString, k_placeholderForString, 14);
             vehicle.Engine = m_vehicleComponentFactory.createEngine(Engine.eEnergyType.Soler, 135);
             vehicle.Wheels = m_vehicleComponentFactory.createWheelsCollection(14, k_placeholderForString, 26);
             m_SupportedVehicleInGarageList.Add(vehicle);

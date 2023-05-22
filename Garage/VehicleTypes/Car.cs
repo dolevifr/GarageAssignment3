@@ -10,26 +10,30 @@
         string m_colorOfCar;
         int m_numOfDoors;
 
-        public Car(string colorOfCar, int numOfDoors, string licenseNumber, string modelName, int i_numOfWheels) :
-                base(licenseNumber, modelName, i_numOfWheels)
-        {
-            if(k_minNUmOfDoors < numOfDoors || numOfDoors > k_maxNumOfDoors)
-            {
-                //throw exception
-            }
-
-            m_numOfDoors = numOfDoors;
-            m_colorOfCar = colorOfCar;
-        }
+        public Car(string licenseNumber, string modelName, int i_numOfWheels) :
+                base(licenseNumber, modelName, i_numOfWheels) {}
 
         public string Color
         {
             get { return m_colorOfCar; }
+            set { m_colorOfCar = value; }
         }
 
         public int DoorsNumber
         {
-            get { return m_numOfDoors; }
+            get 
+            { 
+                return m_numOfDoors; 
+            }
+            set 
+            {
+                if (k_minNUmOfDoors < value || value > k_maxNumOfDoors)
+                {
+                    //throw exception
+                }
+
+                m_numOfDoors = value; 
+            }
         }
 
     }

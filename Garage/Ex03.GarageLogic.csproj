@@ -37,7 +37,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTO.cs" />
     <Compile Include="GarageLogicEngine.cs" />
     <Compile Include="GarageLogicEngine\GarageHandler.cs" />
     <Compile Include="GarageLogicEngine\SupportedVehicleValidator.cs" />

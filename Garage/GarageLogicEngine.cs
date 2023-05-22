@@ -14,6 +14,11 @@ namespace Ex03.GarageLogic
         bool m_areWheelsAdded = false;
 
 
+        public void ConfigureNewVehicle()
+        {
+
+        }
+
         public void AddVehicleToGarage(string i_ownerName, string i_ownerPhoneNumber)
         {
             m_GarageHandler.InsertVehicleToGarage(m_CurrentVehicle, i_ownerName, i_ownerPhoneNumber);

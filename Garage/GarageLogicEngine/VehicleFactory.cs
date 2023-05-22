@@ -7,27 +7,42 @@ namespace Ex03.GarageLogic
         public enum AllowedVehicleTypes { Car, Motorcycle, Truck }
 
 
-        public Vehicle createVehicle(AllowedVehicleTypes vehicleTypeToCreate)
+        public Vehicle createVehicle(AllowedVehicleTypes vehicleTypeToCreate, string i_licenseNumber, string i_carModelName, int i_numOfWheels)
         {
-            return null;
+            Vehicle vehicleToBeCreated = null;
+
+            switch (vehicleTypeToCreate)
+            {
+                case AllowedVehicleTypes.Car:
+                    vehicleToBeCreated = createCarFromInfo(i_licenseNumber, i_carModelName, i_numOfWheels);
+                    break;
+                case AllowedVehicleTypes.Motorcycle:
+                    vehicleToBeCreated = createMotorCycleFromInfo(i_licenseNumber, i_carModelName, i_numOfWheels);
+                    break;
+                case AllowedVehicleTypes.Truck:
+                    vehicleToBeCreated = createTruckFromInfo(i_licenseNumber, i_carModelName, i_numOfWheels);
+                    break;
+                default:
+                    //throw exception
+                    break;
+            }
+
+            return vehicleToBeCreated;
         }
 
-        public Vehicle CreateCarFromInfo(DTO.VehicleInformation i_vehicleInformation, DTO.CarInformation i_carInformation)
+        private Vehicle createCarFromInfo(string i_licenseNumber, string i_carModelName, int i_numOfWheels)
         {
-            return new Car(i_carInformation.m_colorOfCar, i_carInformation.m_numOfDoors,
-                            i_vehicleInformation.m_licenseNumber, i_vehicleInformation.m_modelName, i_vehicleInformation.m_numOfWheels);
+            return new Car(i_licenseNumber, i_carModelName, i_numOfWheels);
         }
 
-        public Vehicle CreateMotorCycleFromInfo(DTO.VehicleInformation i_vehicleInformation, DTO.MotorcycleInformation i_motorcycleInformation)
+        private Vehicle createMotorCycleFromInfo(string i_licenseNumber, string i_carModelName, int i_numOfWheels)
         {
-            return new Motorcycle(i_motorcycleInformation.m_licenseType, i_motorcycleInformation.m_engineVolume,
-                i_vehicleInformation.m_licenseNumber, i_vehicleInformation.m_modelName, i_vehicleInformation.m_numOfWheels);
+            return new Motorcycle(i_licenseNumber, i_carModelName, i_numOfWheels);
         }
 
-        public Vehicle CreateTruckFromInfo(DTO.VehicleInformation vehicleInformation, DTO.TruckInformation truckInformation)
+        private Vehicle createTruckFromInfo(string i_licenseNumber, string i_carModelName, int i_numOfWheels)
         {
-            return new Truck(truckInformation.m_isCarryingDangerousMaterials, truckInformation.m_maxCargoLoad,
-                vehicleInformation.m_licenseNumber, vehicleInformation.m_modelName, vehicleInformation.m_numOfWheels);
+            return new Truck(i_licenseNumber, i_carModelName, i_numOfWheels);
         }
     }
 }
