@@ -7,6 +7,7 @@
         const int k_maxNumOfDoors = 5;
         const int k_minNUmOfDoors = 2;
 
+
         string m_colorOfCar;
         int m_numOfDoors;
 

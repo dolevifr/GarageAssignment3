@@ -10,7 +10,7 @@ namespace Ex03.ConsoleUI
     {
         private UiUserInputs userInput;
         private GarageLogic.GarageLogicEngine logicEngine = new GarageLogic.GarageLogicEngine();
-
+        private GarageLogic.Engine.eEnergyType eEnergyType;
         public enum eCarType { Car, Motorcycle, Truck };
         GarageLogic.Motorcycle motorcycle;
         GarageLogic.Motorcycle.eLicenseType motorcycleliLcenseType;
@@ -24,15 +24,15 @@ namespace Ex03.ConsoleUI
             {
                 if (userInput.IsElectricVehicle())
                 {
-                    int batteryHours = userInput.GetCarElectricityCurrAmount();
+                    logicEngine.AddEngineToCurrentCar(GarageLogic.Engine.eEnergyType.Electricity, userInput.GetCarElectricityCurrAmount());
                 }
                 else
                 {
-                    int currFuelAmount = userInput.GetCarFuelCurrAmount();
+                    logicEngine.AddEngineToCurrentCar(GarageLogic.Engine.eEnergyType.Octan95, userInput.GetCarFuelCurrAmount());
                 }
                 string carColor = userInput.GetCarColor();
                 int numOfCarDoors = userInput.GetCarDoors();
-
+                logicEngine.AddWheelsToCurrentCar(userInput.GetNumberOfWheelsInVehicle(), userInput.GetWheelManufacturerName(), userInput.GetMaxAirPressureInWheels());
             }
             else if (vehiclType == eCarType.Motorcycle)
             {
@@ -45,13 +45,15 @@ namespace Ex03.ConsoleUI
                     int currFuelAmount = userInput.GetCarFuelCurrAmount();
                 }
                 motorcycleliLcenseType = (GarageLogic.Motorcycle.eLicenseType)userInput.GetMotorcycleLicenseType();
+                logicEngine.AddWheelsToCurrentCar(userInput.GetNumberOfWheelsInVehicle(), userInput.GetWheelManufacturerName(), userInput.GetMaxAirPressureInWheels());
                 int motorcycleEngineVolume = userInput.GetEngineVolumeOfMotorcycle();
             }
-
-            else if (vehiclType == eCarType.Truck)
+            else if(vehiclType == eCarType.Truck)
             {
                 bool isRefrigeratorTruck = userInput.GetIsRefrigeratorTruck();
                 float truckCargoVolume = userInput.GetCargoVolumeOfTruck();
+                logicEngine.AddWheelsToCurrentCar(userInput.GetNumberOfWheelsInVehicle(), userInput.GetWheelManufacturerName(), userInput.GetMaxAirPressureInWheels());
+
             }
         }
     }
