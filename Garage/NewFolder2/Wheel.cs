@@ -1,21 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ex03.GarageLogic
 {
     public class Wheel
     {
         private string m_manufacturerName;
-        private float m_currentPSI;
+        private float m_currentPSI = 0;
         private float m_maxPSI;
-        
-        public Wheel(string i_manufacturerName, float i_currentPSI, float i_maxPSI)
+
+        public Wheel(string i_manufacturerName, float i_maxPSI)
         {
             m_manufacturerName = i_manufacturerName;
-            m_currentPSI = i_currentPSI;
             m_maxPSI = i_maxPSI;
         }
 
@@ -31,8 +26,8 @@ namespace Ex03.GarageLogic
         }
 
         public float CurrentPsi
-        { 
-            get { return m_currentPSI;  }
+        {
+            get { return m_currentPSI; }
         }
 
         public float MaxPsi

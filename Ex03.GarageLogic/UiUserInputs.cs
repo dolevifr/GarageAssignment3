@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Ex03.ConsoleUI
-{ 
-  
+{
+
     internal class UiUserInputs
     {
         private void validateIntInput(string messageToPrint, out int intToReturn)
         {
             Console.WriteLine(messageToPrint);
-            if(!Int32.TryParse(Console.ReadLine(), out intToReturn))
+            if (!Int32.TryParse(Console.ReadLine(), out intToReturn))
             {
                 //throw exception
             }
@@ -42,7 +42,7 @@ namespace Ex03.ConsoleUI
         {
             int electricVehicle;
             validateIntInput(UITextMessages.k_isElectricVehicle, out electricVehicle);
-            return electricVehicle == 1 ? true : false;
+            return electricVehicle == 1;
         }
         public int GetCarFuelCurrAmount()
         {
@@ -79,7 +79,7 @@ namespace Ex03.ConsoleUI
         {
             int isRefrigeratorTruckOption;
             validateIntInput(UITextMessages.k_isRefrigeratorTruck, out isRefrigeratorTruckOption);
-            return isRefrigeratorTruckOption == 1 ? true : false;
+            return isRefrigeratorTruckOption == 1;
         }
         public int GetEngineVolumeOfMotorcycle()
         {

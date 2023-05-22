@@ -1,3 +1,5 @@
+﻿using System.Collections.Generic;
+
 ﻿namespace Ex03.GarageLogic
 {
     public class Car : Vehicle
@@ -8,8 +10,8 @@
         string m_colorOfCar;
         int m_numOfDoors;
 
-        public Car(string licenseNumber, string modelName, Engine engineBase, string colorOfCar, int numOfDoors) :
-                base(licenseNumber, modelName, engineBase)
+        public Car(string colorOfCar, int numOfDoors, string licenseNumber, string modelName, int i_numOfWheels) :
+                base(licenseNumber, modelName, i_numOfWheels)
         {
             m_numOfDoors = numOfDoors;
             m_colorOfCar = colorOfCar;
