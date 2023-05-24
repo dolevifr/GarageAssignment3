@@ -16,6 +16,7 @@ Please choose which vehicle you wish to insert the garage:
         public const string k_wheelsCurrAirPressure = "Please insert current air pressure in wheel";
         public const string k_wheelManufacturerName = "Please insert wheel manufacturer name";
         public const string k_wheelNumberInVehicle = "Please insert number of wheels in the vehicl";
+        public const string k_getLicenseNumber = "Please insert license number";
         public const string k_motorcycleLicenseType = @"
 Please insert motorcycle license type:
 1.A1

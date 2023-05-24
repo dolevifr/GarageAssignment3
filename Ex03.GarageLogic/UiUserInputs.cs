@@ -14,11 +14,13 @@ namespace Ex03.ConsoleUI
             Console.WriteLine(messageToPrint);
             if (!Int32.TryParse(Console.ReadLine(), out intToReturn))
             {
+                throw new Exception("not a number");
                 //throw exception
             }
         }
         public string GetVehicleLicenseNumber()
         {
+            Console.WriteLine(UITextMessages.k_getLicenseNumber);
             return Console.ReadLine();
         }
         public string GetWheelManufacturerName()

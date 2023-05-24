@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ex03.ConsoleUI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,8 @@ namespace Ex03.GarageLogic
     {
         public static void Main()
         {
-
+            GarageInserter inserter = new GarageInserter();
+            inserter.InsertVehicle();
         }
     }
 }

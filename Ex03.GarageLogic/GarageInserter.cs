@@ -11,7 +11,7 @@ namespace Ex03.ConsoleUI
         public enum eCarType { Car, Motorcycle, Truck };
 
 
-        private UiUserInputs userInput;
+        private UiUserInputs userInput = new UiUserInputs();
         private GarageLogic.GarageLogicEngine logicEngine = new GarageLogic.GarageLogicEngine();
         private GarageLogic.Engine.eEnergyType eEnergyType;
         GarageLogic.Motorcycle motorcycle;
