@@ -20,5 +20,11 @@
         {
             get { return m_MaxEnergyCapacity; }
         }
+
+        public override string GetEngineInfo()
+        {
+            return string.Format($@"Energy Type: {EnergyType}
+                                    Fuel left in liters: {CurrentFuelLeftLiters}/{MaxFuelLeftLiters}");
+        }
     }
 }

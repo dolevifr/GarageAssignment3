@@ -14,5 +14,11 @@
         {
             get { return m_MaxEnergyCapacity; }
         }
+
+        public override string GetEngineInfo()
+        {
+                return string.Format($@"Energy Type: Electricity
+                                        Battery time in hours: {CurrentBatteryTimeHours}/{MaxBatteryTimeHours}");
+        }
     }
 }
