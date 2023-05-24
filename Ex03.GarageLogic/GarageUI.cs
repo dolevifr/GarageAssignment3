@@ -24,7 +24,14 @@ namespace Ex03.ConsoleUI
                 case 2:
                     m_garageLogicEngine.GetAllLicenseNumbersInGarage();
                     break;
-
+                case 3:
+                    m_garageLogicEngine.GetVehicleDetails(System.Console.ReadLine());
+                    break;
+                case 4:
+                    return;
+                default:
+                    System.Console.WriteLine(UITextMessages.k_invalidMenuItem);
+                    break;
             }
         }
     }

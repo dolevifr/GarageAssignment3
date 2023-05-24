@@ -56,5 +56,25 @@ namespace Ex03.GarageLogic
         {
             return m_GarageHandler.GetVehicleDetails(i_licenseNumberOfVehicle);
         }
+
+        public void ChangeVehicleStatus(string i_licenseNumberOfVehicle, GarageHandler.eVehicleStatus i_newVehicleStatus)
+        {
+            m_GarageHandler.ChangeVehicleStatus(i_licenseNumberOfVehicle, i_newVehicleStatus);
+        }
+
+        public void fillMaxPSIWheels(string i_licenseNumberOfVehicle)
+        {
+            m_GarageHandler.FeelVehicleWheelsToMaxPSI(i_licenseNumberOfVehicle);
+        }
+
+        public void RechargeVehicle(string i_licenseNumberOfVehicle, float i_energyAmountToAdd)
+        {
+            m_GarageHandler.RechargeVehicle(i_licenseNumberOfVehicle, i_energyAmountToAdd);
+        }
+
+        public void RefuelVehicle(string i_licenseNumberOfVehicle, Engine.eEnergyType i_fuelType, float i_FuelToAddLiters)
+        {
+            m_GarageHandler.RefuelVehicle(i_licenseNumberOfVehicle, i_fuelType, i_FuelToAddLiters);
+        }
     }
 }

@@ -71,6 +71,11 @@ Vehicle Status  {m_VehicleStaus}
             currentVehicle.AddEnergy(i_FuelToAddLiters, i_fuelType);
         }
 
+        public void FeelVehicleWheelsToMaxPSI(string i_licenseNumberOfVehicle)
+        {
+            m_vehiclesInTheGarage[i_licenseNumberOfVehicle].m_Vehicle.FillAllTiresToMaxPSI();
+        }
+
         public void RechargeVehicle(string i_licenseNumberOfVehicle, float i_energyAmountToAdd)
         {
             Vehicle currentVehicle = m_vehiclesInTheGarage[i_licenseNumberOfVehicle].m_Vehicle;

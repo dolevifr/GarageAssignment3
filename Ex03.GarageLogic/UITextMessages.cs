@@ -44,8 +44,29 @@ Please insert energy type:
 3.Octan96
 4.Octan98
 5.Electricity";
+        public const string k_invalidMenuItem = "Invalid menu option";
 
-
-
+        public const string k_welcomeMenu = @"
+hello to the Garage, please select an option:
+1.Insert a new vehicle
+2.see the license number of cars in the Garage, with/without status filter
+3.Change Vehicle status in the Garage
+4.Airpump the wheels to the maximum PSI
+5.Fuel a fuel Based car
+6.Charge an electric car
+7.look at all the data of a specific car
+";
+        public const string k_withOrWithoutStatusFilter = @"
+Do you want to filter the cars by status?
+1.No
+2.Yes, filter by in repair
+3.Yes,filter by repaired
+4.Yes,filter by paid
+";
+        public const string k_fuelTheVehicleLicenseNumber = "Please insert license number";
+        public const string k_fuelTheVehicleFuelType = "Please insert fuel type";
+        public const string k_fuelTheVehicleAmount = "Please insert amount to fuel";
+        public const string k_chargeTheVehicleLicenseNumber = "Please insert license number";
+        public const string k_chargeTheVehicleMInutesToAdd = "Please insert how many minuts to add";
     }
 }
