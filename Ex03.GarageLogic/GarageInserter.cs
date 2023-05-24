@@ -7,13 +7,16 @@ using System.Threading.Tasks;
 
 namespace Ex03.ConsoleUI
 {
-    class GarageInserter
+    public class GarageInserter
     {
         private UiUserInputs userInput = new UiUserInputs();
-        private GarageLogicEngine logicEngine = new GarageLogic.GarageLogicEngine();
-        private Engine.eEnergyType eEnergyType;
-        Motorcycle.eLicenseType motorcycleliLcenseType;
+        private GarageLogicEngine logicEngine;
 
+
+        public GarageInserter(GarageLogicEngine i_garageLogicEngine)
+        {
+            logicEngine = i_garageLogicEngine;
+        }
 
         public void InsertVehicle()
         {

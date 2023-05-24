@@ -4,7 +4,7 @@ using System;
 namespace Ex03.ConsoleUI
 {
 
-    internal class UiUserInputs
+    public class UiUserInputs
     {
         public void validateIntInput(string messageToPrint, out int intToReturn)
         {
@@ -116,13 +116,8 @@ namespace Ex03.ConsoleUI
         }
         public float GetCargoVolumeOfTruck()
         {
-            float CargoVolume;
-            Console.WriteLine(UITextMessages.k_truckCargoVolume);
-            if (!float.TryParse(Console.ReadLine(), out CargoVolume))
-            {
-                //throw exception
-            }
-            return CargoVolume;
+            validateFloatInput(UITextMessages.k_truckCargoVolume, out float cargoVolume);
+            return cargoVolume;
         }
     }
 }
