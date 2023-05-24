@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 
 namespace Ex03.GarageLogic
 {
@@ -56,7 +57,7 @@ namespace Ex03.GarageLogic
 
         public float MaxPSI
         {
-            get { return m_wheelsList[0].MaxPsi; }
+            get { return m_wheelsList[0].MaxPSI; }
         }
         
         public float MaxEngineCapacity
@@ -65,7 +66,7 @@ namespace Ex03.GarageLogic
         }
         public Engine.eEnergyType EngineType
         {
-            get { return m_vehicleEngine.FuelType; }
+            get { return m_vehicleEngine.EnergyType; }
         }
 
         public void AddEnergy(float i_energyToAdd, Engine.eEnergyType i_EnergyType)
@@ -79,6 +80,30 @@ namespace Ex03.GarageLogic
             {
                 wheel.FillToMaxAirPressur();
             }
+        }
+
+        public string displayWheelListDetails()
+        {
+            StringBuilder WheelInfoStringBuilder = new StringBuilder();
+            foreach(Wheel wheelOfVehicle in m_wheelsList)
+            {
+                WheelInfoStringBuilder.AppendLine(wheelOfVehicle.DisplayWheelDetail());
+            }
+
+            return WheelInfoStringBuilder.ToString();
+        }
+
+        public virtual string DisplayDetails()
+        {
+            return string.Format($@"Model Name:       {m_modelName}
+                                    License Number:   {m_licenseNumber}
+                                    Number of Wheels: {m_numOfWheels}
+
+                                    Wheels Info:
+                                    {displayWheelListDetails()}
+
+                                    Engine Info:
+                                    {m_vehicleEngine.GetEngineInfo()}");
         }
     }
 }

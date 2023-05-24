@@ -4,9 +4,9 @@ namespace Ex03.GarageLogic
 {
     public class Wheel
     {
-        private string m_manufacturerName;
+        private readonly string m_manufacturerName;
+        private readonly float m_maxPSI;
         private float m_currentPSI = 0;
-        private float m_maxPSI;
 
         public Wheel(string i_manufacturerName, float i_maxPSI)
         {
@@ -20,12 +20,12 @@ namespace Ex03.GarageLogic
             get { return m_manufacturerName; }
         }
 
-        public float CurrentPsi
+        public float CurrentPSI
         {
             get { return m_currentPSI; }
         }
 
-        public float MaxPsi
+        public float MaxPSI
         {
             get { return m_maxPSI; }
         }
@@ -45,6 +45,11 @@ namespace Ex03.GarageLogic
             {
                 m_currentPSI += airToFill;
             }
+        }
+
+        public string DisplayWheelDetail()
+        {
+            return String.Format($"Manufacturer: {ManufacturerName}, PSI: {CurrentPSI}/{MaxPSI}");
         }
 
     }

@@ -5,17 +5,29 @@ namespace Ex03.GarageLogic
 {
     public class GarageLogicEngine
     {
-        VehicleComponentFactory m_VehicleComponentFactory = new VehicleComponentFactory();
-        VehicleFactory m_VehicleFactory = new VehicleFactory();
-        GarageHandler m_GarageHandler = new GarageHandler();
-        Vehicle m_CurrentVehicle = null;
+        private readonly VehicleComponentFactory m_VehicleComponentFactory = new VehicleComponentFactory();
+        private readonly VehicleFactory m_VehicleFactory = new VehicleFactory();
+        private readonly GarageHandler m_GarageHandler = new GarageHandler();
+        private Vehicle  m_CurrentVehicle = null;
 
-        bool m_isEngineAdded = false;
-        bool m_areWheelsAdded = false;
+        private bool m_isEngineAdded = false;
+        private bool m_areWheelsAdded = false;
 
+
+        public void CreateVehicle(VehicleFactory.AllowedVehicleTypes i_carTypeToCreate, string i_licenseNumber, string i_carModelName, int i_numOfWheels)
+        {
+            m_CurrentVehicle = m_VehicleFactory.createVehicle(i_carTypeToCreate, i_licenseNumber, i_carModelName, i_numOfWheels);
+            m_isEngineAdded = false;
+            m_areWheelsAdded = false;
+        }
 
         public void AddVehicleToGarage(string i_ownerName, string i_ownerPhoneNumber)
         {
+            if(!m_areWheelsAdded || !m_isEngineAdded)
+            {
+                //throw exception
+            }
+
             m_GarageHandler.InsertVehicleToGarage(m_CurrentVehicle, i_ownerName, i_ownerPhoneNumber);
         }
 
@@ -36,7 +48,7 @@ namespace Ex03.GarageLogic
             return m_GarageHandler.IsVehicleInGarage(i_licenseNumberOfVehicle);
         }
 
-        public string getVehicleInfo(string i_licenseNumberOfVehicle)
+        public string GetVehicleInfo(string i_licenseNumberOfVehicle)
         {
             return m_GarageHandler.getVehicleDetails(i_licenseNumberOfVehicle);
         }
