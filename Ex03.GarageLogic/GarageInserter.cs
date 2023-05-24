@@ -1,3 +1,4 @@
+using Ex03.GarageLogic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,58 +9,59 @@ namespace Ex03.ConsoleUI
 {
     class GarageInserter
     {
-        public enum eCarType { Car, Motorcycle, Truck };
 
 
         private UiUserInputs userInput = new UiUserInputs();
         private GarageLogic.GarageLogicEngine logicEngine = new GarageLogic.GarageLogicEngine();
         private GarageLogic.Engine.eEnergyType eEnergyType;
-        GarageLogic.Motorcycle motorcycle;
         GarageLogic.Motorcycle.eLicenseType motorcycleliLcenseType;
+
 
         public void InsertVehicle()
         {
-            eCarType vehiclType;
+            VehicleFactory.AllowedVehicleTypes vehiclType;
             string licenseNUmber = userInput.GetVehicleLicenseNumber();
             string modelName = userInput.GetVehicleModelName();
-            vehiclType = (eCarType)userInput.GetVehicleType();
+            vehiclType = (VehicleFactory.AllowedVehicleTypes)(userInput.GetVehicleType() - 1);
+            int numOfWheels = userInput.GetNumberOfWheelsInVehicle();
+            logicEngine.CreateVehicle(vehiclType, licenseNUmber, modelName, numOfWheels);
             if (!logicEngine.isVehicleExistsInGarage(licenseNUmber))
             {
-                if (vehiclType == eCarType.Car)
+                if (vehiclType == VehicleFactory.AllowedVehicleTypes.Car)
                 {
                     insertCar();
                 }
-                else if (vehiclType == eCarType.Motorcycle)
+                else if (vehiclType == VehicleFactory.AllowedVehicleTypes.Motorcycle)
                 {
                     insertMotorcycle();
                 }
-                else if (vehiclType == eCarType.Truck)
+                else if (vehiclType == VehicleFactory.AllowedVehicleTypes.Truck)
                 {
                     insertTruck();
                 }
+                logicEngine.AddWheelsToCurrentCar(numOfWheels, userInput.GetWheelManufacturerName(), userInput.GetMaxAirPressureInWheels());
             }
+            Console.WriteLine(logicEngine.GetAllLicenseNumbersInGarage());
         }
 
+     
         private void insertCar()
         {
             electricOrRegularEngine();
             string carColor = userInput.GetCarColor();
             int numOfCarDoors = userInput.GetCarDoors();
-            logicEngine.AddWheelsToCurrentCar(userInput.GetNumberOfWheelsInVehicle(), userInput.GetWheelManufacturerName(), userInput.GetMaxAirPressureInWheels());
         }
 
         private void insertTruck()
         {
             bool isRefrigeratorTruck = userInput.GetIsRefrigeratorTruck();
             float truckCargoVolume = userInput.GetCargoVolumeOfTruck();
-            logicEngine.AddWheelsToCurrentCar(userInput.GetNumberOfWheelsInVehicle(), userInput.GetWheelManufacturerName(), userInput.GetMaxAirPressureInWheels());
         }
 
         private void insertMotorcycle()
         {
             electricOrRegularEngine();
             motorcycleliLcenseType = (GarageLogic.Motorcycle.eLicenseType)userInput.GetMotorcycleLicenseType();
-            logicEngine.AddWheelsToCurrentCar(userInput.GetNumberOfWheelsInVehicle(), userInput.GetWheelManufacturerName(), userInput.GetMaxAirPressureInWheels());
             int motorcycleEngineVolume = userInput.GetEngineVolumeOfMotorcycle();
         }
 
