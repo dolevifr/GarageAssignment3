@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Ex03.GarageLogic
@@ -29,7 +30,7 @@ namespace Ex03.GarageLogic
             {
                 if(value.Count != m_numOfWheels)
                 {
-                    //throw exception
+                    throw new ArgumentException("Number of wheels given doesn't match vehicles number of wheels");
                 }
 
                 m_wheelsList.Clear();
@@ -52,7 +53,7 @@ namespace Ex03.GarageLogic
 
         public string ModelName
         {
-            get { return m_licenseNumber; }
+            get { return m_modelName; }
         }
 
         public float MaxPSI
@@ -95,15 +96,18 @@ namespace Ex03.GarageLogic
 
         public virtual string DisplayDetails()
         {
-            return string.Format($@"Model Name:       {m_modelName}
-                                    License Number:   {m_licenseNumber}
-                                    Number of Wheels: {m_numOfWheels}
+            return string.Format(
+$@"Model Name:       {m_modelName}
+License Number:   {m_licenseNumber}
+Number of Wheels: {m_numOfWheels}
 
-                                    Wheels Info:
-                                    {displayWheelListDetails()}
+Wheels Info:
+{displayWheelListDetails()}
 
-                                    Engine Info:
-                                    {m_vehicleEngine.GetEngineInfo()}");
+Engine Info:
+{m_vehicleEngine.GetEngineInfo()}"
+);
+
         }
     }
 }

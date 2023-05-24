@@ -1,5 +1,4 @@
-﻿using Ex03.GarageLogic;
-using System.Collections.Generic;
+﻿using System;
 
 namespace Ex03.GarageLogic
 {
@@ -25,7 +24,7 @@ namespace Ex03.GarageLogic
         {
             if(!m_areWheelsAdded || !m_isEngineAdded)
             {
-                //throw exception
+                throw new MissingFieldException("No wheels or engine was added to current vehicle");
             }
 
             m_GarageHandler.InsertVehicleToGarage(m_CurrentVehicle, i_ownerName, i_ownerPhoneNumber);
@@ -48,14 +47,14 @@ namespace Ex03.GarageLogic
             return m_GarageHandler.IsVehicleInGarage(i_licenseNumberOfVehicle);
         }
 
-        public string GetVehicleInfo(string i_licenseNumberOfVehicle)
-        {
-            return m_GarageHandler.getVehicleDetails(i_licenseNumberOfVehicle);
-        }
-
         public string GetAllLicenseNumbersInGarage(GarageHandler.eVehicleStatus? vehicleStatusToFilterBy = null)
         {
             return m_GarageHandler.GetAllLicenseNumbersInGarage(vehicleStatusToFilterBy);
+        }
+
+        public string GetVehicleDetails(string i_licenseNumberOfVehicle)
+        {
+            return m_GarageHandler.GetVehicleDetails(i_licenseNumberOfVehicle);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace Ex03.GarageLogic
+﻿using System;
+
+namespace Ex03.GarageLogic
 {
     public abstract class Engine
     {
@@ -38,14 +40,14 @@
 
             if (m_EnergyType != i_energyType)
             {
-                //throw exception
+                throw new ArgumentException("Wrong energy type for current engine");
             }
 
             float energyCapacityAfterAdd = i_energyToAdd + m_currentEnergyCapacity;
 
             if (energyCapacityAfterAdd > m_MaxEnergyCapacity)
             {
-                //TODO: throw exception instead
+                throw new ValueOutOfRangeException(MaxEnergyCapacity, 0);
             }
 
             m_currentEnergyCapacity = energyCapacityAfterAdd;

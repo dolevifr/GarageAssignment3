@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Ex03.GarageLogic
 {
@@ -23,8 +24,7 @@ namespace Ex03.GarageLogic
                     vehicleToBeCreated = createTruckFromInfo(i_licenseNumber, i_carModelName, i_numOfWheels);
                     break;
                 default:
-                    //throw exception
-                    break;
+                    throw new ArgumentException("Vehicle type is not supported in factory");
             }
 
             return vehicleToBeCreated;

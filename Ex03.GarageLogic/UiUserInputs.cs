@@ -1,19 +1,29 @@
-﻿using System;
+﻿using Ex03.GarageLogic;
+using System;
 
 namespace Ex03.ConsoleUI
 {
 
     internal class UiUserInputs
     {
-        private void validateIntInput(string messageToPrint, out int intToReturn)
+        public void validateIntInput(string messageToPrint, out int intToReturn)
         {
             Console.WriteLine(messageToPrint);
-            if (!Int32.TryParse(Console.ReadLine(), out intToReturn))
+            if (!int.TryParse(Console.ReadLine(), out intToReturn))
             {
-                throw new Exception("not a number");
-                //throw exception
+                throw new FormatException("Invalid integer input");
             }
         }
+
+        public void validateFloatInput(string messageToPrint, out float floatToReturn)
+        {
+            Console.WriteLine(messageToPrint);
+            if (!float.TryParse(Console.ReadLine(), out floatToReturn))
+            {
+                throw new FormatException("Invalid float input");
+            }
+        }
+
         public string GetVehicleLicenseNumber()
         {
             Console.WriteLine(UITextMessages.k_getLicenseNumber);
@@ -36,10 +46,12 @@ namespace Ex03.ConsoleUI
             validateIntInput(UITextMessages.k_wheelNumberInVehicle, out numOfWheels);
             return numOfWheels;
         }
-        public string GetEnergyType()
+        public Engine.eEnergyType GetEnergyType()
         {
-            Console.WriteLine(UITextMessages.k_energyType);
-            return Console.ReadLine();
+            int numOfWheels;
+            validateIntInput(UITextMessages.k_energyType, out numOfWheels);
+
+            return (Engine.eEnergyType)(numOfWheels - 1);
         }
         public int GetVehicleType()
         {
@@ -47,12 +59,7 @@ namespace Ex03.ConsoleUI
             validateIntInput(UITextMessages.k_CarTypeMessage, out optionOfVehicle);
             return optionOfVehicle;
         }
-        public int GetCarElectricityCurrAmount()
-        {
-            int hoursOfElectricityInBattery;
-            validateIntInput(UITextMessages.k_carElectricityCurrAmount, out hoursOfElectricityInBattery);
-            return hoursOfElectricityInBattery;
-        }
+
         public string GetVehicleModelName()
         {
             Console.WriteLine(UITextMessages.k_vehicleModelName);

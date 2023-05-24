@@ -30,7 +30,7 @@ namespace Ex03.GarageLogic
             {
                 if (k_minNUmOfDoors < value || value > k_maxNumOfDoors)
                 {
-                    //throw exception
+                    throw new ValueOutOfRangeException(k_maxNumOfDoors, k_minNUmOfDoors);
                 }
 
                 m_numOfDoors = value; 
@@ -39,9 +39,12 @@ namespace Ex03.GarageLogic
 
         public override string DisplayDetails()
         {
-            StringBuilder s = new StringBuilder(base.DisplayDetails());
-            s.AppendLine($@"Color:          {Color}
-                            Doors number:   {DoorsNumber}");
+            StringBuilder s = new StringBuilder();
+            s.AppendLine(base.DisplayDetails());
+            s.AppendLine(
+$@"Color:          {Color}
+Doors number:      {DoorsNumber}"
+);
             return s.ToString();
         }
 

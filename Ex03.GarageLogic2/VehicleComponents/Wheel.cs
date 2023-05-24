@@ -39,7 +39,7 @@ namespace Ex03.GarageLogic
         {
             if (airToFill + m_currentPSI > m_maxPSI)
             {
-                Console.WriteLine("error");//need to add exception
+                throw new ValueOutOfRangeException(MaxPSI, 0);
             }
             else
             {

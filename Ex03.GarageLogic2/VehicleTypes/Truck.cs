@@ -26,8 +26,9 @@ namespace Ex03.GarageLogic
         public override string DisplayDetails()
         {
             StringBuilder s = new StringBuilder(base.DisplayDetails());
-            s.AppendLine($@"Dangerious materials:   {IsCarryingDangeriousMaterials}
-                            Cargo volume:           {CargoVolume}");
+            s.AppendLine(
+$@"Dangerious materials:   {IsCarryingDangeriousMaterials}
+Cargo volume:              {CargoVolume}");
             return s.ToString();
         }
     }

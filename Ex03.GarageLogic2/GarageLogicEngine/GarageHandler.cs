@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Ex03.GarageLogic
@@ -6,7 +7,7 @@ namespace Ex03.GarageLogic
     public class GarageHandler
     {
         private readonly Dictionary<string, VehicleInformation> m_vehiclesInTheGarage = new Dictionary<string, VehicleInformation>();
-
+        private SupportedVehicleValidator m_supportedVehicleValidator = new SupportedVehicleValidator();
         private class VehicleInformation
         {
             public Vehicle m_Vehicle;
@@ -17,11 +18,10 @@ namespace Ex03.GarageLogic
             public string GetVehicleDetails()
             {
                 return string.Format(
-                $@"License Name:   {m_Vehicle.LicenseNumber}
-                   Model Name:     {m_Vehicle.ModelName}
-                   Owner Name      {m_OwnerName}
-                   Vehicle Status  {m_VehicleStaus}
-                   {m_Vehicle.DisplayDetails()}");
+$@"License Name:   {m_Vehicle.LicenseNumber}
+Owner Name      {m_OwnerName}
+Vehicle Status  {m_VehicleStaus}
+{m_Vehicle.DisplayDetails()}");
             }
         }
 
@@ -29,6 +29,12 @@ namespace Ex03.GarageLogic
 
         public void InsertVehicleToGarage(Vehicle i_vehicleToInsert, string i_ownerName, string i_ownerPhoneNumber)
         {
+            if (!m_supportedVehicleValidator.IsVehicleSupportedInGarage(i_vehicleToInsert))
+            {
+                throw new ArgumentException("Vehicle is not supported by the garage");
+            }
+
+
             VehicleInformation vehicleInformation = new VehicleInformation();
             vehicleInformation.m_Vehicle = i_vehicleToInsert;
             vehicleInformation.m_OwnerName = i_ownerName;
@@ -71,11 +77,11 @@ namespace Ex03.GarageLogic
             currentVehicle.AddEnergy(i_energyAmountToAdd, Engine.eEnergyType.Electricity);
         }
 
-        public string getVehicleDetails(string i_licenseNumberOfVehicle)
+        public string GetVehicleDetails(string i_licenseNumberOfVehicle)
         {
             if (!IsVehicleInGarage(i_licenseNumberOfVehicle))
             {
-                //throw exception
+                throw new ArgumentException("No vehicle with license number given exists in garage.");
             }
 
             return m_vehiclesInTheGarage[i_licenseNumberOfVehicle].GetVehicleDetails();

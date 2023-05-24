@@ -1,4 +1,6 @@
-﻿namespace Ex03.GarageLogic
+﻿using System;
+
+namespace Ex03.GarageLogic
 {
     public class FuelEngine : Engine
     {
@@ -7,7 +9,7 @@
         {
             if (i_energy_type == eEnergyType.Electricity)
             {
-                //throw exception
+                throw new ArgumentException("Fuel engine cannot have electricity as engine energy type");
             }
         }
 
@@ -23,8 +25,9 @@
 
         public override string GetEngineInfo()
         {
-            return string.Format($@"Energy Type: {EnergyType}
-                                    Fuel left in liters: {CurrentFuelLeftLiters}/{MaxFuelLeftLiters}");
+            return string.Format(
+$@"Energy Type: {EnergyType}
+Fuel left in liters: {CurrentFuelLeftLiters}/{MaxFuelLeftLiters}");
         }
     }
 }

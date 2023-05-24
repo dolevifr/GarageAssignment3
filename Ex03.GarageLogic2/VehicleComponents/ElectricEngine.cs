@@ -17,8 +17,9 @@
 
         public override string GetEngineInfo()
         {
-                return string.Format($@"Energy Type: Electricity
-                                        Battery time in hours: {CurrentBatteryTimeHours}/{MaxBatteryTimeHours}");
+                return string.Format(
+$@"Energy Type: Electricity
+Battery time in hours: {CurrentBatteryTimeHours}/{MaxBatteryTimeHours}");
         }
     }
 }
