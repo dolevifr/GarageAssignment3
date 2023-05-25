@@ -46,28 +46,28 @@ namespace Ex03.GarageLogic
             Vehicle vehicle;
 
             vehicle = new Motorcycle(k_placeholderForString, k_placeholderForString, 2);
-            vehicle.Engine = m_vehicleComponentFactory.createEngine(Engine.eEnergyType.Octan98, 6.4f);
-            vehicle.Wheels = m_vehicleComponentFactory.createWheelsCollection(2, k_placeholderForString, 31);
+            vehicle.Engine = m_vehicleComponentFactory.CreateEngine(Engine.eEnergyType.Octan98, 6.4f);
+            vehicle.Wheels = m_vehicleComponentFactory.CreateWheelsCollection(2, k_placeholderForString, 31);
             m_SupportedVehicleInGarageList.Add(vehicle);
 
             vehicle = new Motorcycle(k_placeholderForString, k_placeholderForString, 2);
-            vehicle.Engine = m_vehicleComponentFactory.createEngine(Engine.eEnergyType.Electricity, 2.6f);
-            vehicle.Wheels = m_vehicleComponentFactory.createWheelsCollection(2, k_placeholderForString, 31);
+            vehicle.Engine = m_vehicleComponentFactory.CreateEngine(Engine.eEnergyType.Electricity, 2.6f);
+            vehicle.Wheels = m_vehicleComponentFactory.CreateWheelsCollection(2, k_placeholderForString, 31);
             m_SupportedVehicleInGarageList.Add(vehicle);
 
             vehicle = new Car(k_placeholderForString, k_placeholderForString, 5);
-            vehicle.Engine = m_vehicleComponentFactory.createEngine(Engine.eEnergyType.Octan95, 46);
-            vehicle.Wheels = m_vehicleComponentFactory.createWheelsCollection(5, k_placeholderForString, 33);
+            vehicle.Engine = m_vehicleComponentFactory.CreateEngine(Engine.eEnergyType.Octan95, 46);
+            vehicle.Wheels = m_vehicleComponentFactory.CreateWheelsCollection(5, k_placeholderForString, 33);
             m_SupportedVehicleInGarageList.Add(vehicle);
 
             vehicle = new Car(k_placeholderForString, k_placeholderForString, 5);
-            vehicle.Engine = m_vehicleComponentFactory.createEngine(Engine.eEnergyType.Electricity, 5.2f);
-            vehicle.Wheels = m_vehicleComponentFactory.createWheelsCollection(5, k_placeholderForString, 33);
+            vehicle.Engine = m_vehicleComponentFactory.CreateEngine(Engine.eEnergyType.Electricity, 5.2f);
+            vehicle.Wheels = m_vehicleComponentFactory.CreateWheelsCollection(5, k_placeholderForString, 33);
             m_SupportedVehicleInGarageList.Add(vehicle);
 
             vehicle = new Truck(k_placeholderForString, k_placeholderForString, 14);
-            vehicle.Engine = m_vehicleComponentFactory.createEngine(Engine.eEnergyType.Soler, 135);
-            vehicle.Wheels = m_vehicleComponentFactory.createWheelsCollection(14, k_placeholderForString, 26);
+            vehicle.Engine = m_vehicleComponentFactory.CreateEngine(Engine.eEnergyType.Soler, 135);
+            vehicle.Wheels = m_vehicleComponentFactory.CreateWheelsCollection(14, k_placeholderForString, 26);
             m_SupportedVehicleInGarageList.Add(vehicle);
         }
     }

@@ -11,13 +11,13 @@ namespace Ex03.GarageLogic
         public Truck(string i_licenseNumber, string i_modelName, int i_numOfWheels) :
             base(i_licenseNumber, i_modelName, i_numOfWheels) {}
 
-        bool IsCarryingDangeriousMaterials
+        public bool IsCarryingDangeriousMaterials
         {
             get { return m_isCarryingDangerousMaterials; }
             set { m_isCarryingDangerousMaterials = value; }
         }
 
-        float CargoVolume
+        public float CargoVolume
         {
             get { return m_cargoVolume; }
             set { m_cargoVolume = value; }

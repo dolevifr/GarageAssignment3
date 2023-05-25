@@ -1,9 +1,6 @@
 ﻿using Ex03.ConsoleUI;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ex03.GarageLogic
 {
@@ -15,9 +12,19 @@ namespace Ex03.GarageLogic
 
             while (true)
             {
-                ui.menu();
+                try 
+                { 
+                    ui.menu();
+                }
+                catch (KeyNotFoundException exception)
+                {
+                    Console.WriteLine(UITextMessages.k_vehicleNotInGarage);
+                }
+                catch(Exception exception)
+                {
+                    Console.WriteLine(exception.Message);
+                }
             }
-            Console.ReadLine();
         }
     }
 }

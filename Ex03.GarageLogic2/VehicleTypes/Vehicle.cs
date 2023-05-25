@@ -94,6 +94,14 @@ namespace Ex03.GarageLogic
             return WheelInfoStringBuilder.ToString();
         }
 
+        public void PumpAllWheelsInVehicle(float i_PSIToAdd)
+        {
+            foreach (Wheel wheelOfVehicle in m_wheelsList)
+            {
+                wheelOfVehicle.PumpAirToWheel(i_PSIToAdd);
+            }
+        }
+
         public virtual string DisplayDetails()
         {
             return string.Format(

@@ -7,6 +7,7 @@ namespace Ex03.ConsoleUI
         private UiUserInputs userInputManager = new UiUserInputs();
         private GarageLogicEngine m_garageLogicEngine = new GarageLogicEngine();
         private GarageInserter m_garageInserter;
+        private GarageHandler m_garageHandler = new GarageHandler();
 
         public GarageUI()
         {
@@ -15,7 +16,7 @@ namespace Ex03.ConsoleUI
 
         public void menu()
         {
-            userInputManager.validateIntInput(UITextMessages.k_welcomeMenu, out int menuOptionChosen);
+            userInputManager.ValidateIntInput(UITextMessages.k_welcomeMenu, out int menuOptionChosen);
 
             switch (menuOptionChosen)
             {
@@ -23,7 +24,7 @@ namespace Ex03.ConsoleUI
                     m_garageInserter.InsertVehicle();
                     break;
                 case 2:
-                    getAllLicenseNumbersInGarage();
+                    getLicenseNumbersInGarage();
                     break;
                 case 3:
                     changeVehicleStatusInGarage();
@@ -53,10 +54,15 @@ namespace Ex03.ConsoleUI
             m_garageLogicEngine.ChangeVehicleStatus(licenseNumberOfVehicle, newVehicleStatus);
         }
 
-        private void getAllLicenseNumbersInGarage()
+        private GarageHandler.eVehicleStatus? GetStatusToFilter()
         {
-            //TODO: get vehicle status or return 
-            string allLicenseNumbers = m_garageLogicEngine.GetAllLicenseNumbersInGarage();
+            userInputManager.ValidateIntInput(UITextMessages.k_statusToFilterBy, out int statusFilter);
+            return statusFilter == 4 ? null : (GarageHandler.eVehicleStatus?)(statusFilter - 1);
+        }
+
+        private void getLicenseNumbersInGarage()
+        {
+            string allLicenseNumbers = m_garageLogicEngine.GetAllLicenseNumbersInGarage(GetStatusToFilter());
             System.Console.WriteLine(allLicenseNumbers);
         }
 
@@ -71,21 +77,21 @@ namespace Ex03.ConsoleUI
         {
             string vehicleLicenseNumber = userInputManager.DisplayMessageAndGetStringFromUser(UITextMessages.k_getLicenseNumber);
             Engine.eEnergyType fuelType = userInputManager.GetEnergyType();
-            userInputManager.validateFloatInput(UITextMessages.k_fuelTheVehicleAmount, out float fuelToAddLiters);
+            userInputManager.ValidateFloatInput(UITextMessages.k_fuelTheVehicleAmount, out float fuelToAddLiters);
             m_garageLogicEngine.RefuelVehicle(vehicleLicenseNumber, fuelType, fuelToAddLiters);
         }
 
         private void rechangeElectricVehicle()
         {
             string vehicleLicenseNumber = userInputManager.DisplayMessageAndGetStringFromUser(UITextMessages.k_chargeTheVehicleLicenseNumber);
-            userInputManager.validateFloatInput(UITextMessages.k_getBatteryTimeToAddMInutes, out float batteryTimeToAddMinutes);
+            userInputManager.ValidateFloatInput(UITextMessages.k_getBatteryTimeToAddMInutes, out float batteryTimeToAddMinutes);
             m_garageLogicEngine.RechargeVehicle(vehicleLicenseNumber, batteryTimeToAddMinutes / 60);
         }
 
         private void fillWheelsToMaxPSI()
         {
             string vehicleLicenseNumber = userInputManager.DisplayMessageAndGetStringFromUser(UITextMessages.k_chargeTheVehicleLicenseNumber);
-            m_garageLogicEngine.fillMaxPSIWheels(vehicleLicenseNumber);
+            m_garageLogicEngine.FillMaxPSIWheels(vehicleLicenseNumber);
         }
     }
 }

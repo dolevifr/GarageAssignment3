@@ -15,14 +15,18 @@ namespace Ex03.ConsoleUI
 
         public void InsertVehicle()
         {
-            userInput.GetVehicleBaseInformation(out string licenseNUmber, out string modelName, out int numOfWheels);
-            VehicleFactory.AllowedVehicleTypes vehiclType;
-            userInput.validateIntInput(UITextMessages.k_CarTypeMessage, out int vehicleTypeToCast);
-            vehiclType = (VehicleFactory.AllowedVehicleTypes)(vehicleTypeToCast - 1);
-            logicEngine.CreateVehicle(vehiclType, licenseNUmber, modelName, numOfWheels);
+            string licenseNumber = userInput.DisplayMessageAndGetStringFromUser(UITextMessages.k_getLicenseNumber);
             
-            if (!logicEngine.isVehicleExistsInGarage(licenseNUmber))
+            if (!logicEngine.IsVehicleExistsInGarage(licenseNumber))
             {
+                string ownersName = userInput.DisplayMessageAndGetStringFromUser(UITextMessages.k_vehicleOwnerName);
+                string ownerPhoneNumber = userInput.DisplayMessageAndGetStringFromUser(UITextMessages.k_vehicleOwnerPhoneNumber);
+                userInput.GetVehicleBaseInformation(out string modelName, out int numOfWheels);
+                userInput.ValidateIntInput(UITextMessages.k_CarTypeMessage, out int vehicleTypeToCast);
+                VehicleFactory.AllowedVehicleTypes vehiclType = (VehicleFactory.AllowedVehicleTypes)(vehicleTypeToCast - 1);
+                logicEngine.CreateVehicle(vehiclType, licenseNumber, modelName, numOfWheels);
+
+
                 if (vehiclType == VehicleFactory.AllowedVehicleTypes.Car)
                 {
                     insertCar();
@@ -34,50 +38,63 @@ namespace Ex03.ConsoleUI
                 else if (vehiclType == VehicleFactory.AllowedVehicleTypes.Truck)
                 {
                     insertTruck();
-                }
-
+                }                
+                
                 insertEngine();
-
-                logicEngine.AddWheelsToCurrentCar(numOfWheels, userInput.DisplayMessageAndGetStringFromUser(UITextMessages.k_wheelManufacturerName), userInput.GetMaxAirPressureInWheels());
-                logicEngine.AddVehicleToGarage("aaaaa", "0513135");
+                insertWheels(numOfWheels);
+                logicEngine.AddVehicleToGarage(ownersName, ownerPhoneNumber);
+            }
+            else
+            {
+                System.Console.WriteLine(UITextMessages.k_isVehicleExistsInTheGarage);
+                logicEngine.ChangeVehicleStatus(licenseNumber, GarageHandler.eVehicleStatus.InRepair);
             }
         }
 
+        private void insertWheels(int i_numOfWheels)
+        {
+            logicEngine.AddWheelsToCurrentCar(i_numOfWheels, userInput.DisplayMessageAndGetStringFromUser(UITextMessages.k_wheelManufacturerName), userInput.GetMaxAirPressureInWheels());
+            userInput.ValidateIntInput(UITextMessages.k_wheelsCurrAirPressure, out int PSI);
+            logicEngine.InitializePSIInVehicle(PSI);
+        }
 
         private void insertCar()
         {
-            userInput.DisplayMessageAndGetStringFromUser(UITextMessages.k_vehicleColor);
-            userInput.validateIntInput(UITextMessages.k_numOfVehicleDoors, out int numOfCarDoors);
+            string color = userInput.DisplayMessageAndGetStringFromUser(UITextMessages.k_vehicleColor);
+            userInput.ValidateIntInput(UITextMessages.k_numOfVehicleDoors, out int numOfCarDoors);
+            logicEngine.AddUniqueFieldsForCar(numOfCarDoors, color);
         }
 
         private void insertTruck()
         {
-            bool isRefrigeratorTruck = userInput.GetIsRefrigeratorTruck();
-            userInput.validateFloatInput(UITextMessages.k_truckCargoVolume,out float truckCargoVolume);
+            bool isCarryingDangeriousMaterials = userInput.GetIsCarryingDangeriousMaterials();
+            userInput.ValidateFloatInput(UITextMessages.k_truckCargoVolume, out float truckCargoVolume);
+            logicEngine.AddUniqueFieldsForTruck(isCarryingDangeriousMaterials, truckCargoVolume);
         }
 
         private void insertMotorcycle()
         {
-
             Motorcycle.eLicenseType motorcycleliLcenseType = (GarageLogic.Motorcycle.eLicenseType)userInput.GetMotorcycleLicenseType();
-            userInput.validateIntInput(UITextMessages.k_truckCargoVolume, out int motorcycleENgineVolume);
+            userInput.ValidateIntInput(UITextMessages.k_truckCargoVolume, out int motorcycleEngineVolume);
+            logicEngine.AddUniqueFieldsForMotorcycle(motorcycleliLcenseType, motorcycleEngineVolume);
         }
 
-        private void insertEngine(string licenseNumber)
+        private void insertEngine()
         {
             Engine.eEnergyType energyType = userInput.GetEnergyType();
             string message = energyType == Engine.eEnergyType.Electricity ? UITextMessages.k_carElectricityCurrAmount : UITextMessages.k_carFuelCurrAmount;
-            userInput.validateFloatInput(message, out float maxEnergyAmount);
+            userInput.ValidateFloatInput(message, out float maxEnergyAmount);
             logicEngine.AddEngineToCurrentCar(energyType, maxEnergyAmount);
+            
             if (energyType != Engine.eEnergyType.Electricity)
             {
-                userInput.validateFloatInput(UITextMessages.k_fuelTheVehicleAmount, out float fuelTheVehicleAmount);
-                logicEngine.RefuelVehicle(licenseNumber, energyType, fuelTheVehicleAmount);
+                userInput.ValidateFloatInput(UITextMessages.k_fuelTheVehicleAmount, out float fuelTheVehicleAmount);
+                logicEngine.InitializeEnergyInVehicle(energyType, fuelTheVehicleAmount);
             }
             else
             {
-                userInput.validateFloatInput(UITextMessages.k_chargeTheVehicleMInutesToAdd, out float minutesOfCharge);
-                logicEngine.RechargeVehicle(licenseNumber, minutesOfCharge / 60);
+                userInput.ValidateFloatInput(UITextMessages.k_chargeTheVehicleMInutesToAdd, out float minutesOfCharge);
+                logicEngine.InitializeEnergyInVehicle(energyType, minutesOfCharge / 60);
             }
         }
     }

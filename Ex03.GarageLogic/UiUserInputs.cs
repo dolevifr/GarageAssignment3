@@ -5,31 +5,30 @@ namespace Ex03.ConsoleUI
 {
     public class UiUserInputs
     {
-        public void validateIntInput(string messageToPrint, out int intToReturn)
+        public void ValidateIntInput(string i_messageToPrint, out int o_intToReturn)
         {
-            Console.WriteLine(messageToPrint);
-            if (!int.TryParse(Console.ReadLine(), out intToReturn))
+            Console.WriteLine(i_messageToPrint);
+            if (!int.TryParse(Console.ReadLine(), out o_intToReturn))
             {
                 throw new FormatException("Invalid integer input");
             }
         }
-        public void GetVehicleBaseInformation(out string licenseNumber, out string ModelName,out int numOfWheels)
+        public void GetVehicleBaseInformation(out string o_ModelName,out int o_numOfWheels)
         {
-            licenseNumber = DisplayMessageAndGetStringFromUser(UITextMessages.k_getLicenseNumber);
-            ModelName = DisplayMessageAndGetStringFromUser(UITextMessages.k_vehicleModelName);
-            validateIntInput(UITextMessages.k_wheelNumberInVehicle, out numOfWheels);
+            o_ModelName = DisplayMessageAndGetStringFromUser(UITextMessages.k_vehicleModelName);
+            ValidateIntInput(UITextMessages.k_wheelNumberInVehicle, out o_numOfWheels);
         }
 
-        public string DisplayMessageAndGetStringFromUser(string messageToPrint)
+        public string DisplayMessageAndGetStringFromUser(string i_messageToPrint)
         {
-            Console.WriteLine(messageToPrint);
+            Console.WriteLine(i_messageToPrint);
             return Console.ReadLine();
         }
 
-        public void validateFloatInput(string messageToPrint, out float floatToReturn)
+        public void ValidateFloatInput(string i_messageToPrint, out float o_floatToReturn)
         {
-            Console.WriteLine(messageToPrint);
-            if (!float.TryParse(Console.ReadLine(), out floatToReturn))
+            Console.WriteLine(i_messageToPrint);
+            if (!float.TryParse(Console.ReadLine(), out o_floatToReturn))
             {
                 throw new FormatException("Invalid float input");
             }
@@ -37,33 +36,33 @@ namespace Ex03.ConsoleUI
         public int GetMaxAirPressureInWheels()
         {
             int maxPressureInWheels;
-            validateIntInput(UITextMessages.k_wheelsMaxAirPressure, out maxPressureInWheels);
+            ValidateIntInput(UITextMessages.k_wheelsMaxAirPressure, out maxPressureInWheels);
             return maxPressureInWheels;
         }
         public Engine.eEnergyType GetEnergyType()
         {
             int numOfWheels;
-            validateIntInput(UITextMessages.k_energyType, out numOfWheels);
+            ValidateIntInput(UITextMessages.k_energyType, out numOfWheels);
             return (Engine.eEnergyType)(numOfWheels - 1);
         }
 
         public GarageHandler.eVehicleStatus GetVehicleStatus()
         {
-            validateIntInput(UITextMessages.k_getVehicleNewStatusInGarage, out int vehicleStatus);
+            ValidateIntInput(UITextMessages.k_getVehicleNewStatusInGarage, out int vehicleStatus);
             return (GarageHandler.eVehicleStatus)(vehicleStatus - 1);
         }
 
         public int GetMotorcycleLicenseType()
         {
             int licenseOption;
-            validateIntInput(UITextMessages.k_motorcycleLicenseType, out licenseOption);
+            ValidateIntInput(UITextMessages.k_motorcycleLicenseType, out licenseOption);
             return licenseOption;
 
         }
-        public bool GetIsRefrigeratorTruck()
+        public bool GetIsCarryingDangeriousMaterials()
         {
             int isRefrigeratorTruckOption;
-            validateIntInput(UITextMessages.k_isRefrigeratorTruck, out isRefrigeratorTruckOption);
+            ValidateIntInput(UITextMessages.k_isRefrigeratorTruck, out isRefrigeratorTruckOption);
             return isRefrigeratorTruckOption == 1;
         }
     }

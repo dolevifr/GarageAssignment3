@@ -35,15 +35,15 @@ namespace Ex03.GarageLogic
             m_currentPSI = m_maxPSI;
         }
 
-        private void pumpAirToWheel(int airToFill)
+        public void PumpAirToWheel(float i_airToFill)
         {
-            if (airToFill + m_currentPSI > m_maxPSI)
+            if (i_airToFill + m_currentPSI > m_maxPSI)
             {
                 throw new ValueOutOfRangeException(MaxPSI, 0);
             }
             else
             {
-                m_currentPSI += airToFill;
+                m_currentPSI += i_airToFill;
             }
         }
 

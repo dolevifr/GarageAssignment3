@@ -10,17 +10,42 @@ namespace Ex03.GarageLogic
         private SupportedVehicleValidator m_supportedVehicleValidator = new SupportedVehicleValidator();
         private class VehicleInformation
         {
-            public Vehicle m_Vehicle;
-            public eVehicleStatus m_VehicleStaus;
-            public string m_OwnerName;
-            public string m_OwnerPhoneNumber;
+            private Vehicle m_Vehicle;
+            private eVehicleStatus m_VehicleStaus;
+            private string m_OwnerName;
+            private string m_OwnerPhoneNumber;
+
+            public Vehicle Vehicle
+            {
+                get { return m_Vehicle; }
+                set { m_Vehicle = value; }
+            }
+
+            public eVehicleStatus VehicleStatus
+            {
+                get { return m_VehicleStaus; }
+                set { m_VehicleStaus = value; }
+            }
+
+            public string OwnerName {
+                get { return m_OwnerName; }
+                set { m_OwnerName = value; }
+            }
+
+            public string OwnerPhoneNumber
+            {
+                get { return m_OwnerPhoneNumber; }
+                set { m_OwnerPhoneNumber = value; }
+            }
 
             public string GetVehicleDetails()
             {
                 return string.Format(
-$@"License Name:   {m_Vehicle.LicenseNumber}
-Owner Name      {m_OwnerName}
-Vehicle Status  {m_VehicleStaus}
+$@"License Name:    {m_Vehicle.LicenseNumber}
+Owner Name          {m_OwnerName}
+Owner Phoine Number {m_OwnerPhoneNumber}
+Vehicle Status      {m_VehicleStaus}
+
 {m_Vehicle.DisplayDetails()}");
             }
         }
@@ -36,9 +61,9 @@ Vehicle Status  {m_VehicleStaus}
 
 
             VehicleInformation vehicleInformation = new VehicleInformation();
-            vehicleInformation.m_Vehicle = i_vehicleToInsert;
-            vehicleInformation.m_OwnerName = i_ownerName;
-            vehicleInformation.m_OwnerPhoneNumber = i_ownerPhoneNumber;
+            vehicleInformation.Vehicle = i_vehicleToInsert;
+            vehicleInformation.OwnerName = i_ownerName;
+            vehicleInformation.OwnerPhoneNumber = i_ownerPhoneNumber;
             m_vehiclesInTheGarage.Add(i_vehicleToInsert.LicenseNumber, vehicleInformation);
         }
 
@@ -47,14 +72,17 @@ Vehicle Status  {m_VehicleStaus}
             return m_vehiclesInTheGarage.ContainsKey(i_licenseNumber);
         }
 
-        public string GetAllLicenseNumbersInGarage(eVehicleStatus? vehicleStatusToFilterBy = null)
+        public string GetAllLicenseNumbersInGarage(eVehicleStatus? i_vehicleStatusToFilterBy = null)
         {
             StringBuilder licenseIDsInGarage = new StringBuilder();
 
             foreach (VehicleInformation vehicleInfo in m_vehiclesInTheGarage.Values)
             {
-                if ((vehicleStatusToFilterBy.HasValue && vehicleInfo.m_VehicleStaus == vehicleStatusToFilterBy) || !vehicleStatusToFilterBy.HasValue)
-                    licenseIDsInGarage.AppendLine(vehicleInfo.m_Vehicle.LicenseNumber);
+                if ((i_vehicleStatusToFilterBy.HasValue && vehicleInfo.VehicleStatus == i_vehicleStatusToFilterBy)
+                    || !i_vehicleStatusToFilterBy.HasValue)
+                {
+                    licenseIDsInGarage.AppendLine(vehicleInfo.Vehicle.LicenseNumber);
+                }
             }
 
             return licenseIDsInGarage.ToString();
@@ -62,23 +90,23 @@ Vehicle Status  {m_VehicleStaus}
 
         public void ChangeVehicleStatus(string i_licenseNumberOfVehicle, eVehicleStatus i_newVehicleStatus)
         {
-            m_vehiclesInTheGarage[i_licenseNumberOfVehicle].m_VehicleStaus = i_newVehicleStatus;
+            m_vehiclesInTheGarage[i_licenseNumberOfVehicle].VehicleStatus = i_newVehicleStatus;
         }
 
         public void RefuelVehicle(string i_licenseNumberOfVehicle, Engine.eEnergyType i_fuelType, float i_FuelToAddLiters)
         {
-            Vehicle currentVehicle = m_vehiclesInTheGarage[i_licenseNumberOfVehicle].m_Vehicle;
+            Vehicle currentVehicle = m_vehiclesInTheGarage[i_licenseNumberOfVehicle].Vehicle;
             currentVehicle.AddEnergy(i_FuelToAddLiters, i_fuelType);
         }
 
         public void FeelVehicleWheelsToMaxPSI(string i_licenseNumberOfVehicle)
         {
-            m_vehiclesInTheGarage[i_licenseNumberOfVehicle].m_Vehicle.FillAllTiresToMaxPSI();
+            m_vehiclesInTheGarage[i_licenseNumberOfVehicle].Vehicle.FillAllTiresToMaxPSI();
         }
 
         public void RechargeVehicle(string i_licenseNumberOfVehicle, float i_energyAmountToAdd)
         {
-            Vehicle currentVehicle = m_vehiclesInTheGarage[i_licenseNumberOfVehicle].m_Vehicle;
+            Vehicle currentVehicle = m_vehiclesInTheGarage[i_licenseNumberOfVehicle].Vehicle;
             currentVehicle.AddEnergy(i_energyAmountToAdd, Engine.eEnergyType.Electricity);
         }
 

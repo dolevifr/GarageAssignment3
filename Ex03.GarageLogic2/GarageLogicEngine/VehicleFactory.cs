@@ -8,11 +8,11 @@ namespace Ex03.GarageLogic
         public enum AllowedVehicleTypes { Car, Motorcycle, Truck }
 
 
-        public Vehicle createVehicle(AllowedVehicleTypes vehicleTypeToCreate, string i_licenseNumber, string i_carModelName, int i_numOfWheels)
+        public Vehicle CreateVehicle(AllowedVehicleTypes i_vehicleTypeToCreate, string i_licenseNumber, string i_carModelName, int i_numOfWheels)
         {
             Vehicle vehicleToBeCreated = null;
 
-            switch (vehicleTypeToCreate)
+            switch (i_vehicleTypeToCreate)
             {
                 case AllowedVehicleTypes.Car:
                     vehicleToBeCreated = createCarFromInfo(i_licenseNumber, i_carModelName, i_numOfWheels);

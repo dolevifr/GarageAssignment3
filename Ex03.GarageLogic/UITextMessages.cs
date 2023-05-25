@@ -8,8 +8,10 @@ Please choose which vehicle you wish to insert the garage:
 1.Car
 2.Motorcycle
 3.Truck";
-        public const string k_carFuelCurrAmount = "Please insert amount of fuel in the car.";
+        public const string k_carFuelCurrAmount = "Please insert amount of fuel capacity of vehicle in liters.";
         public const string k_carElectricityCurrAmount = "Please insert how many hours left in the battery.";
+        public const string k_vehicleOwnerName = "Please insert the vehicle owner name";
+        public const string k_vehicleOwnerPhoneNumber = "Please insert vehicle owner phone number";
         public const string k_vehicleColor = "Please insert vehicle color";
         public const string k_numOfVehicleDoors = "Please insert amount of doors in Vehicle";
         public const string k_wheelsMaxAirPressure = "Please insert max air pressure in wheel";
@@ -25,7 +27,7 @@ Please insert motorcycle license type:
 4.B1";
 
         public const string k_isRefrigeratorTruck = @"
-The truck is refrigerator truck? please choose 1 or 2
+The truck is refrigerator truck please choose 1 or 2
 1.Yes
 2.No";
 
@@ -65,15 +67,21 @@ Do you want to filter the cars by status?
 ";
         public const string k_fuelTheVehicleLicenseNumber = "Please insert license number";
         public const string k_fuelTheVehicleFuelType = "Please insert fuel type";
-        public const string k_fuelTheVehicleAmount = "Please insert amount to fuel";
+        public const string k_fuelTheVehicleAmount = "Please insert intial amount of fuel";
         public const string k_chargeTheVehicleLicenseNumber = "Please insert license number";
         public const string k_chargeTheVehicleMInutesToAdd = "Please insert how many minuts to add";
         public const string k_getVehicleNewStatusInGarage = @"
 Please enter integer repressenting new status of vehicle:
 (1. In-Repair, 2. Repaird, 3.Paid)";
+        public const string k_statusToFilterBy = @"
+1. In-Repair
+2. Repaired
+3. Paid
+4. All Vehicles";
         public const string k_getBatteryTimeToAddMInutes = "Please select the battery time to add in minutes";
         public const string k_insertCurrentHoursOfElectricity = "Please enter hours of Battrey left";
         public const string k_insertCurrentFuelLiters = "Please enter amount of fuel in the vehicle";
-        public const string k_isVehicleExistsInTheGarage = "The vehicle is already in the garage";
+        public const string k_isVehicleExistsInTheGarage = "The vehicle already exists in system";
+        public const string k_vehicleNotInGarage = "Vehicle does not exist in garage";
     }
 }
