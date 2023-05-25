@@ -1,9 +1,4 @@
 using Ex03.GarageLogic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ex03.ConsoleUI
 {
@@ -21,7 +16,7 @@ namespace Ex03.ConsoleUI
         public void InsertVehicle()
         {
             VehicleFactory.AllowedVehicleTypes vehiclType;
-            string licenseNUmber = userInput.GetVehicleLicenseNumber();
+            string licenseNUmber = userInput.DisplayMessageAndGetStringFromUser();
             string modelName = userInput.GetVehicleModelName();
             vehiclType = (VehicleFactory.AllowedVehicleTypes)(userInput.GetVehicleType() - 1);
             int numOfWheels = userInput.GetNumberOfWheelsInVehicle();

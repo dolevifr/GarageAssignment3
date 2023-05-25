@@ -3,7 +3,6 @@ using System;
 
 namespace Ex03.ConsoleUI
 {
-
     public class UiUserInputs
     {
         public void validateIntInput(string messageToPrint, out int intToReturn)
@@ -15,6 +14,30 @@ namespace Ex03.ConsoleUI
             }
         }
 
+        public int getAndParseInputFromUser(string messageToPrint)
+        {
+            Console.WriteLine(messageToPrint);
+            return int.Parse(Console.ReadLine());
+        }
+
+        public float getAndParseFloatFromUser(string messageToPrint)
+        {
+            Console.WriteLine(messageToPrint);
+            return float.Parse(Console.ReadLine());
+        }
+
+        public string DisplayMessageAndGetStringFromUser(string messageToPrint)
+        {
+            Console.WriteLine(UITextMessages.k_getLicenseNumber);
+            return Console.ReadLine();
+        }
+
+        public string DisplayMessageAndGetStringFromUser()
+        {
+            Console.WriteLine(UITextMessages.k_getLicenseNumber);
+            return Console.ReadLine();
+        }
+
         public void validateFloatInput(string messageToPrint, out float floatToReturn)
         {
             Console.WriteLine(messageToPrint);
@@ -24,11 +47,7 @@ namespace Ex03.ConsoleUI
             }
         }
 
-        public string GetVehicleLicenseNumber()
-        {
-            Console.WriteLine(UITextMessages.k_getLicenseNumber);
-            return Console.ReadLine();
-        }
+
         public string GetWheelManufacturerName()
         {
             Console.WriteLine(UITextMessages.k_wheelManufacturerName);
