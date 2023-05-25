@@ -67,9 +67,9 @@ namespace Ex03.GarageLogic
             m_GarageHandler.FeelVehicleWheelsToMaxPSI(i_licenseNumberOfVehicle);
         }
 
-        public void RechargeVehicle(string i_licenseNumberOfVehicle, float i_energyAmountToAdd)
+        public void RechargeVehicle(string i_licenseNumberOfVehicle, float i_batteryTimeToAddInHours)
         {
-            m_GarageHandler.RechargeVehicle(i_licenseNumberOfVehicle, i_energyAmountToAdd);
+            m_GarageHandler.RechargeVehicle(i_licenseNumberOfVehicle, i_batteryTimeToAddInHours);
         }
 
         public void RefuelVehicle(string i_licenseNumberOfVehicle, Engine.eEnergyType i_fuelType, float i_FuelToAddLiters)

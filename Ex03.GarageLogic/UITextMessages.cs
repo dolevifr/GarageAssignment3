@@ -65,8 +65,13 @@ Do you want to filter the cars by status?
 ";
         public const string k_fuelTheVehicleLicenseNumber = "Please insert license number";
         public const string k_fuelTheVehicleFuelType = "Please insert fuel type";
-        public const string k_fuelTheVehicleAmount = "Please insert amount to fuel";
+        public const string k_fuelTheVehicleAmount = "Please insert amount to fuel in liters";
         public const string k_chargeTheVehicleLicenseNumber = "Please insert license number";
         public const string k_chargeTheVehicleMInutesToAdd = "Please insert how many minuts to add";
+        public const string k_getVehicleNewStatusInGarage =@"
+Please enter integer repressenting new status of vehicle:
+(1. In-Repair, 2. Repaird, 3.Paid)";
+        public const string k_getBatteryTimeToAddMInutes = "Please select the battery time to add in minutes";
+    
     }
 }

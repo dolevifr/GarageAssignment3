@@ -11,8 +11,6 @@ namespace Ex03.GarageLogic
     {
         public static void Main()
         {
-            GarageInserter inserter = new GarageInserter();
-            inserter.InsertVehicle();
             
         }
     }

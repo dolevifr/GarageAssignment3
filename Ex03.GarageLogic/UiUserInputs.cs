@@ -26,6 +26,12 @@ namespace Ex03.ConsoleUI
             return float.Parse(Console.ReadLine());
         }
 
+        public int getAndParseIntegerFromUser(string messageToPrint)
+        {
+            Console.WriteLine(messageToPrint);
+            return int.Parse(Console.ReadLine());
+        }
+
         public string DisplayMessageAndGetStringFromUser(string messageToPrint)
         {
             Console.WriteLine(UITextMessages.k_getLicenseNumber);
@@ -72,6 +78,13 @@ namespace Ex03.ConsoleUI
 
             return (Engine.eEnergyType)(numOfWheels - 1);
         }
+
+        public GarageHandler.eVehicleStatus GetVehicleStatus()
+        {
+            int vehicleStatus = getAndParseIntegerFromUser(UITextMessages.k_getVehicleNewStatusInGarage);
+            return (GarageHandler.eVehicleStatus)(vehicleStatus - 1);
+        }
+
         public int GetVehicleType()
         {
             int optionOfVehicle;
