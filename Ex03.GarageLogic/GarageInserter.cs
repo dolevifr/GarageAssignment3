@@ -20,6 +20,7 @@ namespace Ex03.ConsoleUI
             userInput.validateIntInput(UITextMessages.k_CarTypeMessage, out int vehicleTypeToCast);
             vehiclType = (VehicleFactory.AllowedVehicleTypes)(vehicleTypeToCast - 1);
             logicEngine.CreateVehicle(vehiclType, licenseNUmber, modelName, numOfWheels);
+            
             if (!logicEngine.isVehicleExistsInGarage(licenseNUmber))
             {
                 if (vehiclType == VehicleFactory.AllowedVehicleTypes.Car)

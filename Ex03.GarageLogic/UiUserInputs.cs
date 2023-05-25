@@ -47,6 +47,12 @@ namespace Ex03.ConsoleUI
             return (Engine.eEnergyType)(numOfWheels - 1);
         }
 
+        public GarageHandler.eVehicleStatus GetVehicleStatus()
+        {
+            validateIntInput(UITextMessages.k_getVehicleNewStatusInGarage, out int vehicleStatus);
+            return (GarageHandler.eVehicleStatus)(vehicleStatus - 1);
+        }
+
         public int GetMotorcycleLicenseType()
         {
             int licenseOption;

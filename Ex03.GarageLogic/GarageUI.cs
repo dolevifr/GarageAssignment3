@@ -56,13 +56,15 @@ namespace Ex03.ConsoleUI
         private void getAllLicenseNumbersInGarage()
         {
             //TODO: get vehicle status or return 
-            m_garageLogicEngine.GetAllLicenseNumbersInGarage();
+            string allLicenseNumbers = m_garageLogicEngine.GetAllLicenseNumbersInGarage();
+            System.Console.WriteLine(allLicenseNumbers);
         }
 
         private void getVehicleDetailsByLicenseNumber()
         {
             string vehicleLicenseNumber = userInputManager.DisplayMessageAndGetStringFromUser(UITextMessages.k_getLicenseNumber);
-            m_garageLogicEngine.GetVehicleDetails(vehicleLicenseNumber);
+            string vehicleDetails = m_garageLogicEngine.GetVehicleDetails(vehicleLicenseNumber);
+            System.Console.WriteLine(vehicleDetails);
         }
 
         private void refuelVehicle()
@@ -77,7 +79,7 @@ namespace Ex03.ConsoleUI
         {
             string vehicleLicenseNumber = userInputManager.DisplayMessageAndGetStringFromUser(UITextMessages.k_chargeTheVehicleLicenseNumber);
             userInputManager.validateFloatInput(UITextMessages.k_getBatteryTimeToAddMInutes, out float batteryTimeToAddMinutes);
-            m_garageLogicEngine.RechargeVehicle(vehicleLicenseNumber, batteryTimeToAddMinutes);
+            m_garageLogicEngine.RechargeVehicle(vehicleLicenseNumber, batteryTimeToAddMinutes / 60);
         }
 
         private void fillWheelsToMaxPSI()
