@@ -72,6 +72,8 @@ Do you want to filter the cars by status?
 Please enter integer repressenting new status of vehicle:
 (1. In-Repair, 2. Repaird, 3.Paid)";
         public const string k_getBatteryTimeToAddMInutes = "Please select the battery time to add in minutes";
-
+        public const string k_insertCurrentHoursOfElectricity = "Please enter hours of Battrey left";
+        public const string k_insertCurrentFuelLiters = "Please enter amount of fuel in the vehicle";
+        public const string k_isVehicleExistsInTheGarage = "The vehicle is already in the garage";
     }
 }

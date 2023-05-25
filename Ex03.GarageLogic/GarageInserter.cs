@@ -63,12 +63,22 @@ namespace Ex03.ConsoleUI
             userInput.validateIntInput(UITextMessages.k_truckCargoVolume, out int motorcycleENgineVolume);
         }
 
-        private void insertEngine()
+        private void insertEngine(string licenseNumber)
         {
             Engine.eEnergyType energyType = userInput.GetEnergyType();
             string message = energyType == Engine.eEnergyType.Electricity ? UITextMessages.k_carElectricityCurrAmount : UITextMessages.k_carFuelCurrAmount;
             userInput.validateFloatInput(message, out float maxEnergyAmount);
             logicEngine.AddEngineToCurrentCar(energyType, maxEnergyAmount);
+            if (energyType != Engine.eEnergyType.Electricity)
+            {
+                userInput.validateFloatInput(UITextMessages.k_fuelTheVehicleAmount, out float fuelTheVehicleAmount);
+                logicEngine.RefuelVehicle(licenseNumber, energyType, fuelTheVehicleAmount);
+            }
+            else
+            {
+                userInput.validateFloatInput(UITextMessages.k_chargeTheVehicleMInutesToAdd, out float minutesOfCharge);
+                logicEngine.RechargeVehicle(licenseNumber, minutesOfCharge / 60);
+            }
         }
     }
 }
