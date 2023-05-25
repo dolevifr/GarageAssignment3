@@ -26,7 +26,6 @@ namespace Ex03.ConsoleUI
             return Console.ReadLine();
         }
 
-
         public void validateFloatInput(string messageToPrint, out float floatToReturn)
         {
             Console.WriteLine(messageToPrint);
