@@ -15,11 +15,10 @@ namespace Ex03.ConsoleUI
 
         public void InsertVehicle()
         {
+            userInput.GetVehicleBaseInformation(out string licenseNUmber, out string modelName, out int numOfWheels);
             VehicleFactory.AllowedVehicleTypes vehiclType;
-            string licenseNUmber = userInput.DisplayMessageAndGetStringFromUser();
-            string modelName = userInput.GetVehicleModelName();
-            vehiclType = (VehicleFactory.AllowedVehicleTypes)(userInput.GetVehicleType() - 1);
-            int numOfWheels = userInput.GetNumberOfWheelsInVehicle();
+            userInput.validateIntInput(UITextMessages.k_CarTypeMessage, out int vehicleTypeToCast);
+            vehiclType = (VehicleFactory.AllowedVehicleTypes)(vehicleTypeToCast - 1);
             logicEngine.CreateVehicle(vehiclType, licenseNUmber, modelName, numOfWheels);
             if (!logicEngine.isVehicleExistsInGarage(licenseNUmber))
             {
@@ -37,7 +36,8 @@ namespace Ex03.ConsoleUI
                 }
 
                 insertEngine();
-                logicEngine.AddWheelsToCurrentCar(numOfWheels, userInput.GetWheelManufacturerName(), userInput.GetMaxAirPressureInWheels());
+
+                logicEngine.AddWheelsToCurrentCar(numOfWheels, userInput.DisplayMessageAndGetStringFromUser(UITextMessages.k_wheelManufacturerName), userInput.GetMaxAirPressureInWheels());
                 logicEngine.AddVehicleToGarage("aaaaa", "0513135");
             }
         }
@@ -45,20 +45,21 @@ namespace Ex03.ConsoleUI
 
         private void insertCar()
         {
-            string carColor = userInput.GetCarColor();
-            int numOfCarDoors = userInput.GetCarDoors();
+            userInput.DisplayMessageAndGetStringFromUser(UITextMessages.k_vehicleColor);
+            userInput.validateIntInput(UITextMessages.k_numOfVehicleDoors, out int numOfCarDoors);
         }
 
         private void insertTruck()
         {
             bool isRefrigeratorTruck = userInput.GetIsRefrigeratorTruck();
-            float truckCargoVolume = userInput.GetCargoVolumeOfTruck();
+            userInput.validateFloatInput(UITextMessages.k_truckCargoVolume,out float truckCargoVolume);
         }
 
         private void insertMotorcycle()
         {
-            motorcycleliLcenseType = (GarageLogic.Motorcycle.eLicenseType)userInput.GetMotorcycleLicenseType();
-            int motorcycleEngineVolume = userInput.GetEngineVolumeOfMotorcycle();
+
+            Motorcycle.eLicenseType motorcycleliLcenseType = (GarageLogic.Motorcycle.eLicenseType)userInput.GetMotorcycleLicenseType();
+            userInput.validateIntInput(UITextMessages.k_truckCargoVolume, out int motorcycleENgineVolume);
         }
 
         private void insertEngine()
