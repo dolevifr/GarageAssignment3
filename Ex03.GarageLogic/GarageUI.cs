@@ -77,7 +77,7 @@ namespace Ex03.ConsoleUI
         {
             string vehicleLicenseNumber = userInputManager.DisplayMessageAndGetStringFromUser(UITextMessages.k_getLicenseNumber);
             Engine.eEnergyType fuelType = userInputManager.GetEnergyType();
-            userInputManager.ValidateFloatInput(UITextMessages.k_fuelTheVehicleAmount, out float fuelToAddLiters);
+            userInputManager.ValidateFloatInput(UITextMessages.k_fuelToAddAmount, out float fuelToAddLiters);
             m_garageLogicEngine.RefuelVehicle(vehicleLicenseNumber, fuelType, fuelToAddLiters);
         }
 
@@ -90,7 +90,7 @@ namespace Ex03.ConsoleUI
 
         private void fillWheelsToMaxPSI()
         {
-            string vehicleLicenseNumber = userInputManager.DisplayMessageAndGetStringFromUser(UITextMessages.k_chargeTheVehicleLicenseNumber);
+            string vehicleLicenseNumber = userInputManager.DisplayMessageAndGetStringFromUser(UITextMessages.k_getLicenseNumber);
             m_garageLogicEngine.FillMaxPSIWheels(vehicleLicenseNumber);
         }
     }

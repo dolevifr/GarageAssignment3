@@ -27,13 +27,14 @@ namespace Ex03.GarageLogic
 
         public override string DisplayDetails()
         {
-            StringBuilder s = new StringBuilder(base.DisplayDetails());
-            s.AppendLine(
+            StringBuilder detailsForMotorcycleStringBuilder = new StringBuilder();
+            detailsForMotorcycleStringBuilder.AppendLine(base.DisplayDetails());
+            detailsForMotorcycleStringBuilder.AppendLine(
 $@"Engine Volume:  {EngineVolume}
 License Type:   {LicenseType}"
 );
 
-            return s.ToString();
+            return detailsForMotorcycleStringBuilder.ToString();
         }
     }
 }

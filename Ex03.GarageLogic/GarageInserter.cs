@@ -93,7 +93,7 @@ namespace Ex03.ConsoleUI
             }
             else
             {
-                userInput.ValidateFloatInput(UITextMessages.k_chargeTheVehicleMInutesToAdd, out float minutesOfCharge);
+                userInput.ValidateFloatInput(UITextMessages.k_initialMinutesAmountInBattery, out float minutesOfCharge);
                 logicEngine.InitializeEnergyInVehicle(energyType, minutesOfCharge / 60);
             }
         }

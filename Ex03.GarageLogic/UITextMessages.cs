@@ -8,8 +8,8 @@ Please choose which vehicle you wish to insert the garage:
 1.Car
 2.Motorcycle
 3.Truck";
-        public const string k_carFuelCurrAmount = "Please insert amount of fuel capacity of vehicle in liters.";
-        public const string k_carElectricityCurrAmount = "Please insert how many hours left in the battery.";
+        public const string k_carFuelCurrAmount = "Please insert amount of maximum fuel capacity of vehicle in liters.";
+        public const string k_carElectricityCurrAmount = "Please insert maximum battery capacity in hours.";
         public const string k_vehicleOwnerName = "Please insert the vehicle owner name";
         public const string k_vehicleOwnerPhoneNumber = "Please insert vehicle owner phone number";
         public const string k_vehicleColor = "Please insert vehicle color";
@@ -65,11 +65,10 @@ Do you want to filter the cars by status?
 3.Yes,filter by repaired
 4.Yes,filter by paid
 ";
-        public const string k_fuelTheVehicleLicenseNumber = "Please insert license number";
-        public const string k_fuelTheVehicleFuelType = "Please insert fuel type";
+        public const string k_fuelToAddAmount = "Please insert fuel amount to add";
         public const string k_fuelTheVehicleAmount = "Please insert intial amount of fuel";
         public const string k_chargeTheVehicleLicenseNumber = "Please insert license number";
-        public const string k_chargeTheVehicleMInutesToAdd = "Please insert how many minuts to add";
+        public const string k_chargeTheVehicleMInutesToAdd = "Please insert how many minuts to add to battery";
         public const string k_getVehicleNewStatusInGarage = @"
 Please enter integer repressenting new status of vehicle:
 (1. In-Repair, 2. Repaird, 3.Paid)";
@@ -83,5 +82,7 @@ Please enter integer repressenting new status of vehicle:
         public const string k_insertCurrentFuelLiters = "Please enter amount of fuel in the vehicle";
         public const string k_isVehicleExistsInTheGarage = "The vehicle already exists in system";
         public const string k_vehicleNotInGarage = "Vehicle does not exist in garage";
+        public const string k_initialMinutesAmountInBattery = "Please insert intial amount of minutes in battery";
+
     }
 }

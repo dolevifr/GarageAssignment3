@@ -109,10 +109,10 @@ $@"Model Name:       {m_modelName}
 License Number:   {m_licenseNumber}
 Number of Wheels: {m_numOfWheels}
 
-Wheels Info:
+Wheels Info-
 {displayWheelListDetails()}
 
-Engine Info:
+Engine Info-
 {m_vehicleEngine.GetEngineInfo()}"
 );
 

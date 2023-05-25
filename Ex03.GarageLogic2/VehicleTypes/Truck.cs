@@ -25,11 +25,12 @@ namespace Ex03.GarageLogic
 
         public override string DisplayDetails()
         {
-            StringBuilder s = new StringBuilder(base.DisplayDetails());
-            s.AppendLine(
+            StringBuilder detailsForTruckStringBuilder = new StringBuilder();
+            detailsForTruckStringBuilder.AppendLine(base.DisplayDetails());
+            detailsForTruckStringBuilder.AppendLine(
 $@"Dangerious materials:   {IsCarryingDangeriousMaterials}
 Cargo volume:              {CargoVolume}");
-            return s.ToString();
+            return detailsForTruckStringBuilder.ToString();
         }
     }
 }
